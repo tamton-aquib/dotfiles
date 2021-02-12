@@ -1,0 +1,4 @@
+
+syntax on
+colorscheme molokai
+

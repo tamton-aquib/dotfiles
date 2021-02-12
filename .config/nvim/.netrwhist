@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/taj/Downloads/noice'
+let g:netrw_dirhist_2='/home/taj/CODES/github_projects/new/noice'
+let g:netrw_dirhist_1='/home/taj/Downloads/noice'
+let g:netrw_dirhist_0='/home/taj/.config/nvim/plug-config'
+let g:netrw_dirhist_9='/home/taj/CODES/github_projects/new/django_project/.git'
+let g:netrw_dirhist_8='/home/taj/.config/nvim/autoload/plugged'
+let g:netrw_dirhist_7='/home/taj/CODES/github_projects/js/pass_gen'
+let g:netrw_dirhist_6='/home/taj/Downloads/noice'
+let g:netrw_dirhist_5='/home/taj/.config/fish/functions'
+let g:netrw_dirhist_4='/home/taj/.config/nvim/vim-plug'
