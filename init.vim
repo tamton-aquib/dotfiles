@@ -1,6 +1,6 @@
 " GENERAL SETTINGS {{{
 
-set leader key
+" set leader key
 let g:mapleader = "\<Space>"
 
 syntax enable                           " Enables syntax highlighing
