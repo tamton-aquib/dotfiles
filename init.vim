@@ -137,7 +137,6 @@ let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
 
 syntax on
-colorscheme onedark
 " glowbeam
 
 " checks if your terminal has 24-bit color support
@@ -559,3 +558,4 @@ command! -bang -nargs=* GGrep
 
 " }}}
 
+colorscheme onedark
