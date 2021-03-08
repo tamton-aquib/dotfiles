@@ -1,7 +1,7 @@
 " GENERAL SETTINGS {{{
 
 " set leader key
-let g:mapleader = "\<Space>"
+let g:mapleader = " "
 
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
@@ -40,7 +40,6 @@ set scrolloff=8
 set incsearch
 "set autochdir                           " Your working directory will always be the same as your working directory
 
-au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
 " You can't stop me
 cmap w!! w !sudo tee %
@@ -95,14 +94,6 @@ nnoremap <C-_> :call ToggleComment()<CR>
 
 "  PLUGINS {{{
 
-"auto-install vim-plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  "autocmd VimEnter * PlugInstall
-  "autocmd VimEnter * PlugInstall | source $MYVIMRC
-endif
-
 call plug#begin('~/.config/nvim/autoload/plugged')
     " Floaterm
     Plug 'voldikss/vim-floaterm'
@@ -114,36 +105,18 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'sheerun/vim-polyglot'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-    " One-dark Theme
-    Plug 'joshdick/onedark.vim'
-    " Stable version of coc
+    " Gruvbox material version
+    Plug 'sainnhe/gruvbox-material'
 call plug#end()
 " }}}
 
-" ONEDARK THEME {{{
+" GRUVBOX THEME {{{
 
-" onedark.vim override: Don't set a background color when running in a terminal;
-if (has("autocmd") && !has("gui_running"))
-    augroup colorset
-      autocmd!
-      let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-      autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
-    augroup END
-endif
-
-hi Comment cterm=italic
-let g:onedark_hide_endofbuffer=1
-let g:onedark_terminal_italics=1
-let g:onedark_termcolors=256
-
-syntax on
-" glowbeam
-
-" checks if your terminal has 24-bit color support
 if (has("termguicolors"))
     set termguicolors
     hi LineNr ctermbg=NONE guibg=NONE
 endif
+
 " }}}
 
 " KEY-MAPPINGS {{{
@@ -558,4 +531,5 @@ command! -bang -nargs=* GGrep
 
 " }}}
 
-colorscheme onedark
+colorscheme gruvbox-material
+au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC

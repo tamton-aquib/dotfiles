@@ -7,28 +7,24 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+    " Material Gruvbox
+    Plug 'sainnhe/gruvbox-material'
+    " markdown-preview
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    " Stable version of coc
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Lazy git ma baby
+    Plug 'kdheepak/lazygit.nvim'
     " Floaterm
     Plug 'voldikss/vim-floaterm'
-    " Molokai theme
-    Plug 'tomasr/molokai'
     " Fuzzy Finder
     Plug 'junegunn/fzf.vim'
-    " primeagens vim game
-    Plug 'ThePrimeagen/vim-be-good'
     " html auto-close tags
     Plug 'alvan/vim-closetag'
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-    " One-dark Theme
-    Plug 'joshdick/onedark.vim'
-    " Stable version of coc
-    Plug 'neoclide/coc.nvim', {'branch': 'release0'}
-    " Airline Status
-    " Plug 'vim-airline/vim-airline'
-    " Plug 'vim-airline/vim-airline-themes'
     " Colorizer
     Plug 'norcalli/nvim-colorizer.lua'
-  
 call plug#end()
