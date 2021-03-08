@@ -4,11 +4,12 @@
 ___
 
 ### Some stuff I use:
-* Alacritty. (Terminal Emulator)
-* Neovim. (Hyperextensible Vim-based text-editor)
-* Qtile. (Tiling Window Manager)
-* Starship. (Cross Shell Prompt)
-* Tmux. (Terminal Multiplexer)
+* Alacritty. (Terminal emulator)
+* Neovim. (Hyperextensible vim-based text-editor)
+* Qtile. (Tiling window manager)
+* Fish. (Command line shell)
+* Starship. (Cross shell prompt)
+* Tmux. (Terminal multiplexer)
 
 #### Some other small stuff worth mentioning: 
 * Kitty (Terminal Emulator)
