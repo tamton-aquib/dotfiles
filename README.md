@@ -1,6 +1,6 @@
 # dotfiles
 
-![Imgur](https://i.imgur.com/FRlgCda.png)
+![Imgur](https://i.imgur.com/X6fIHpp.png)
 ___
 
 ### Some stuff I use:
