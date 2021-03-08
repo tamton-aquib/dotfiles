@@ -1,6 +1,6 @@
 # dotfiles
-___
-![Imgur](https://i.imgur.com/aAwH83d.png)
+
+![Imgur](https://i.imgur.com/FRlgCda.png)
 ___
 
 ### Some stuff I use:
@@ -10,7 +10,7 @@ ___
 * Starship. (Cross Shell Prompt)
 * Tmux. (Terminal Multiplexer)
 
-#### Other Some small stuff worth mentioning: 
+#### Some other small stuff worth mentioning: 
 * Kitty (Terminal Emulator)
 * Rofi (Dmenu replacement)
 * picom (Lightweight Compositor)
