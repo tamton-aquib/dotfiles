@@ -15,4 +15,5 @@ ___
 * Kitty (Terminal Emulator)
 * Rofi (Dmenu replacement)
 * picom (Lightweight Compositor)
-* init.vim (For quick copy paste to use on other systems)
+* .vimrc (For quick copy paste to use on other systems)
+* .emacs (trying out to see which is better vim/emacs)
