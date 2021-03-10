@@ -7,6 +7,8 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+    " Live server bracey for html, css and js
+    Plug 'turbio/bracey.vim'
     " Material Gruvbox
     Plug 'sainnhe/gruvbox-material'
     " markdown-preview

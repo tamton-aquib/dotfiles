@@ -5,7 +5,6 @@ nnoremap <leader>t :FloatermNew --autoclose=2<CR>
 nnoremap <leader>m :FloatermNew --autoclose=2 ytop<CR>
 nnoremap <leader>p :FloatermNew --autoclose=2 python<CR>
 nnoremap <leader>l :LazyGit<CR>
-nnoremap <leader>w ciw""<Esc>P
 
 cmap W w
 cmap Q q
@@ -13,6 +12,8 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 au FileType python set foldmethod=indent
 
+nnoremap <leader>' ciw""<Esc>P
+nnoremap <leader>w Iconsole.log(<Esc>A);<Esc>
 
 " Running Filetypes
 au Filetype vim nnoremap <silent> <buffer> <leader>r :so %<CR>
