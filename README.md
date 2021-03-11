@@ -12,8 +12,8 @@ ___
 * Tmux. (Terminal multiplexer)
 
 #### Some other small stuff worth mentioning: 
-* Kitty (Terminal Emulator)
-* Rofi (Dmenu replacement)
-* picom (Lightweight Compositor)
-* .vimrc (For quick copy paste to use on other systems)
-* .emacs (trying out to see which is better vim/emacs)
+* Kitty. (Terminal Emulator)
+* Rofi. (Dmenu replacement)
+* picom. (Lightweight Compositor)
+* .vimrc. (For quick copy paste to use on other systems)
+* .emacs. (trying out to see which is better vim/emacs)
