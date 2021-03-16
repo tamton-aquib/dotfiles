@@ -4,16 +4,16 @@
 ___
 
 ### Some stuff I use:
-* Alacritty. (Terminal emulator)
-* Neovim. (Hyperextensible vim-based text-editor)
-* Qtile. (Tiling window manager)
-* Fish. (Command line shell)
-* Starship. (Cross shell prompt)
-* Tmux. (Terminal multiplexer)
+* [Kitty](https://sw.kovidgoyal.net/kitty/). (Terminal Emulator)
+* [Neovim](https://neovim.io/). (Hyperextensible vim-based text-editor)
+* [Qtile](http://www.qtile.org/). (Tiling window manager)
+* [Fish](https://fishshell.com/). (Command line shell)
+* [Starship](https://starship.rs/). (Cross shell prompt)
+* [Tmux](https://github.com/tmux/tmux/wiki). (Terminal multiplexer)
 
 #### Some other small stuff worth mentioning: 
-* Kitty (Terminal Emulator)
-* Rofi (Dmenu replacement)
-* picom (Lightweight Compositor)
+* [alacritty](https://github.com/alacritty/alacritty). (Terminal emulator)
+* [rofi](https://github.com/davatorium/rofi) (Dmenu replacement)
+* [picom](https://github.com/jonaburg/picom) (Lightweight Compositor)
 * vimrc (For quick copy paste to use on other systems)
-* emacs (trying out to see which is better vim/emacs)
+* [emacs](https://github.com/hlissner/doom-emacs) (trying out to see which is better vim/emacs)
