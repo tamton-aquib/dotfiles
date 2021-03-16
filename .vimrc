@@ -54,9 +54,6 @@ set signcolumn=no
 let g:python_highlight_space_errors = 0
 let g:pep8_ignore="E501,W601"
 
-command! -bang -nargs=? -complete=dir 
-  \ Files call fzf#vim#files(<q-args>, {'source': 'rg --files --glob "!__pycache__/*" --no-ignore-vcs'}, <bang>0)
-
 let s:comment_map = { 
     \   "c": '\/\/',
     \   "java": '\/\/',
@@ -105,12 +102,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'sheerun/vim-polyglot'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-    " Gruvbox material version
-    Plug 'sainnhe/gruvbox-material'
+    " Sonokai colorscheme
+    Plug 'sainnhe/sonokai'
 call plug#end()
 " }}}
 
-" GRUVBOX THEME {{{
+" SONOKAI THEME {{{
 
 if (has("termguicolors"))
     set termguicolors
@@ -531,5 +528,4 @@ command! -bang -nargs=* GGrep
 
 " }}}
 
-colorscheme gruvbox-material
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
