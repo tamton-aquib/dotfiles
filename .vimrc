@@ -109,10 +109,16 @@ call plug#end()
 
 " SONOKAI THEME {{{
 
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+
+syntax on
+
 if (has("termguicolors"))
     set termguicolors
     hi LineNr ctermbg=NONE guibg=NONE
 endif
+
 
 " }}}
 
