@@ -1,6 +1,6 @@
 # My Dotfiles. 🖤
 
-![Imgur](https://i.imgur.com/oJz5DSF.jpg)
+![Imgur](https://i.imgur.com/u9NYdqJ.png)
 ___
 
 ### Some stuff I use:
