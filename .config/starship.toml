@@ -9,6 +9,7 @@ truncation_length = 1
 [character]
 success_symbol = "[](bold green)"
 error_symbol = "[](bold red)"
+vicmd_symbol = "[«](bold green)"
 
 [memory_usage]
 disabled = false
