@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import os
-import re
 import socket
 import subprocess
 from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click
@@ -15,6 +14,7 @@ myTerm = "kitty"                             # My terminal of choice
 
 keys = [
     # The essentials
+    Key([mod], "c", lazy.spawn('colors')),
     Key([mod, "shift"], "e", lazy.spawn('emacs'), desc="Opens emacs"),
     Key([mod], "b", lazy.hide_show_bar("top"), desc="Toggle bar"),
     Key([mod], "r", lazy.spawn('rofi -show run'), desc="Opens rofi"),
@@ -469,6 +469,7 @@ floating_layout = layout.Floating(float_rules=[
 def autostart():
     processes = [
         ['picom'],
+        ['xclip'],
         ['systemctl', '--user', 'start', 'dunst.service']
     ]
 
