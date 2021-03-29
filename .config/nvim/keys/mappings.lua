@@ -38,5 +38,5 @@ vim.api.nvim_set_keymap('n', '<C-u>', 'viwU',{noremap=true})
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap=true}) 
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap=true})
 
-vim.api.nvim_set_keymap('n', '<C-s>', ':w', {noremap=true})
-vim.api.nvim_set_keymap('n', '<C-q>', ':q', {noremap=true})
+vim.api.nvim_set_keymap('n', '<C-s', ':w', {noremap=true})
+vim.api.nvim_set_keymap('n', '<C-q', ':q', {noremap=true})

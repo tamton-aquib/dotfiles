@@ -1,15 +1,14 @@
 " custom
 set foldmethod=syntax
 set foldlevel=99
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.jsx'
 filetype indent on
 set signcolumn=no 
 
 let g:python_highlight_space_errors = 0
 let g:pep8_ignore="E501,W601"
 
-let g:coc_snippet_next = '<TAB>'
-let g:coc_snippet_prev = '<S-TAB>'
+autocmd VimEnter,VimLeave * silent !tmux set status off
 
 command! -bang -nargs=? -complete=dir 
   \ Files call fzf#vim#files(<q-args>, {'source': 'rg --files --glob "!__pycache__/*" --no-ignore-vcs'}, <bang>0)
@@ -24,7 +23,7 @@ set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
-set cmdheight=2                         " More space for displaying messages
+set cmdheight=1                         " More space for displaying messages
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
@@ -37,7 +36,7 @@ set autoindent                          " Good auto indent
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
 set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
-set laststatus=0                        " Always display the status line
+set laststatus=2                        " Always display the status line
 set number                              " Line numbers
 set cursorline                          " Enable highlighting of the current line
 set showtabline=2                       " Always show tabs

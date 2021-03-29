@@ -8,7 +8,7 @@ function! Toggle_transparent()
         let t:is_tranparent = 0
     endif
 endfunction
-nnoremap <C-t> : call Toggle_transparent()<CR>
+nnoremap <silent> <C-t> : call Toggle_transparent()<CR>
 
 
 let s:comment_map = { 
@@ -19,6 +19,8 @@ let s:comment_map = {
     \   "python": '#',
     \   "sh": '#',
     \   "vim": '"',
+    \   "rust": '\/\/',
+    \   "lua": '--'
     \ }
 
 function! ToggleComment()

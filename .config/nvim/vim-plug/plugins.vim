@@ -2,25 +2,36 @@
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  "autocmd VimEnter * PlugInstall
+  "autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-    " Sonokai colorscheme
-    Plug 'sainnhe/sonokai'
-    " Live server bracey for html, css and js
+    Plug 'morhetz/gruvbox'
+    Plug 'norcalli/snippets.nvim'
+
+    Plug 'AndrewRadev/discotheque.vim'
+    Plug 'srcery-colors/srcery-vim'
+    " Tab line
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'romgrk/barbar.nvim'
+    " Telescope
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    " Startify for proj management
+    Plug 'mhinz/vim-startify'
+    " Native LSP
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+    " Live server for web-dev
     Plug 'turbio/bracey.vim'
-    " Material Gruvbox
-    Plug 'sainnhe/gruvbox-material'
     " markdown-preview
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-    " Stable version of coc
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Lazy git ma baby
+    " Lazygit
     Plug 'kdheepak/lazygit.nvim'
     " Floaterm
     Plug 'voldikss/vim-floaterm'
-    " Fuzzy Finder
-    Plug 'junegunn/fzf.vim'
     " html auto-close tags
     Plug 'alvan/vim-closetag'
     " Better Syntax Support

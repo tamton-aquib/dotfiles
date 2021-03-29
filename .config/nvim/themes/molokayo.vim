@@ -1,9 +1,7 @@
 
-let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 1
-
 syntax on
-colorscheme sonokai
+colorscheme molokayo
+" glowbeam
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
