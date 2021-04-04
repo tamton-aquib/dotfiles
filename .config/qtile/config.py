@@ -2,7 +2,7 @@
 import os
 import socket
 import subprocess
-from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click
+from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
@@ -10,13 +10,17 @@ from typing import List  # noqa: F401
 
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
 alt = "mod1"
-myTerm = "kitty"                             # My terminal of choice
+myTerm = "alacritty"                             # My terminal of choice
 
 keys = [
     # The essentials
+    Key([mod], "t", lazy.hide_show_bar("top"), desc="Toggle bar"),
+
+    Key([mod], "b", lazy.spawn("brave"), desc="Toggle bar"),
+    Key([mod], "v", lazy.spawn("vlc"), desc="Toggle bar"),
+
     Key([mod], "c", lazy.spawn('colors')),
     Key([mod, "shift"], "e", lazy.spawn('emacs'), desc="Opens emacs"),
-    Key([mod], "b", lazy.hide_show_bar("top"), desc="Toggle bar"),
     Key([mod], "r", lazy.spawn('rofi -show run'), desc="Opens rofi"),
     Key([alt], "Tab", lazy.screen.togglegroup(),
         desc="Alt+tab for toggling groups"),
