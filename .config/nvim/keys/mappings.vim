@@ -10,11 +10,4 @@ au FileType javascript nnoremap <buffer> <leader>r :w<CR>:FloatermNew node %<CR>
 au Filetype python nnoremap <buffer> <leader>r :w<CR>:FloatermNew python %<CR>
 au FileType sh nnoremap <buffer> <leader>r :w<CR>:FloatermNew ./%<CR>
 
-" Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-nnoremap <Leader>o o<Esc>^Da
-nnoremap <Leader>O O<Esc>^Da
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"

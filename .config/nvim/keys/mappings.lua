@@ -1,42 +1,40 @@
 vim.g.leader = " "
+local mapp = vim.api.nvim_set_keymap
+local nnoremap_silent = {noremap=true, silent=true}
 
---> Temp
-vim.api.nvim_set_keymap('i', 'jk', '<Esc>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<C-a>','ggVG',{noremap=true})
-
-vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>', {noremap=true})
-
-vim.api.nvim_set_keymap('n', '<leader>w', 'Iconsole.log(<Esc>A);<Esc>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>\'', 'ciw""<Esc>P', {noremap=true})
-
-vim.api.nvim_set_keymap('c', 'W', 'w', {noremap=true})
-vim.api.nvim_set_keymap('c', 'Q', 'q', {noremap=true})
-
-vim.api.nvim_set_keymap('v', '<', '<gv', {noremap=true})
-vim.api.nvim_set_keymap('v', '>', '>gv', {noremap=true})
+--> Custom
+mapp('i', 'jk', '<Esc>', nnoremap_silent)
+mapp('n', '<leader>a','ggVG',nnoremap_silent)
+mapp('n', '<leader>f', ':Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>', nnoremap_silent)
+mapp('n', '<leader>w', 'Iconsole.log(<Esc>A);<Esc>', nnoremap_silent)
+mapp('n', '<leader>\'', 'ciw""<Esc>P', nnoremap_silent)
+mapp('n', '<C-c>', ':w<CR>:!live_server<CR>', nnoremap_silent)
 
 --> Floaterm Mappings
-vim.api.nvim_set_keymap('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', {noremap=true})
-vim.api.nvim_set_keymap('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', {noremap=true})
-vim.api.nvim_set_keymap('n','<leader>l', ':LazyGit<Cr>', {noremap=true})
-
+mapp('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', nnoremap_silent)
+mapp('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', nnoremap_silent)
+mapp('n','<leader>l', ':LazyGit<Cr>', nnoremap_silent)
 
 --> WINDOW Control
-vim.api.nvim_set_keymap('n', '<C-h>','<C-w>h',{noremap=true})
-vim.api.nvim_set_keymap('n', '<C-j>','<C-w>j',{noremap=true})
-vim.api.nvim_set_keymap('n', '<C-k>','<C-w>k',{noremap=true})
-vim.api.nvim_set_keymap('n', '<C-l>','<C-w>l',{noremap=true})
-vim.api.nvim_set_keymap('n', '<M-h>', ':vertical resize +2<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<M-j>', ':resize -2<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<M-k>', ':resize +2<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize -2<CR>', {noremap=true})
+mapp('n', '<C-h>','<C-w>h',nnoremap_silent)
+mapp('n', '<C-j>','<C-w>j',nnoremap_silent)
+mapp('n', '<C-k>','<C-w>k',nnoremap_silent)
+mapp('n', '<C-l>','<C-w>l',nnoremap_silent)
+mapp('n', '<M-h>', ':vertical resize +2<CR>', nnoremap_silent)
+mapp('n', '<M-j>', ':resize -2<CR>', nnoremap_silent)
+mapp('n', '<M-k>', ':resize +2<CR>', nnoremap_silent)
+mapp('n', '<M-l>', ':vertical resize -2<CR>', nnoremap_silent)
 
 --> OLD
-vim.api.nvim_set_keymap('i', '<C-u>', '<Esc>viwUi',{noremap=true})
-vim.api.nvim_set_keymap('n', '<C-u>', 'viwU',{noremap=true})
-
-vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap=true}) 
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap=true})
-
-vim.api.nvim_set_keymap('n', '<C-s', ':w', {noremap=true})
-vim.api.nvim_set_keymap('n', '<C-q', ':q', {noremap=true})
+mapp('i', '<C-u>', '<Esc>viwUi',nnoremap_silent)
+mapp('n', '<C-u>', 'viwU',nnoremap_silent)
+mapp('n', '<TAB>', ':bnext<CR>', nnoremap_silent) 
+mapp('n', '<S-TAB>', ':bprevious<CR>', nnoremap_silent)
+mapp('n', '<C-s>', ':w', nnoremap_silent)
+mapp('n', '<C-q>', ':q', nnoremap_silent)
+mapp('c', 'W', 'w', nnoremap_silent)
+mapp('c', 'Q', 'q', nnoremap_silent)
+mapp('v', '<', '<gv', nnoremap_silent)
+mapp('v', '>', '>gv', nnoremap_silent)
+mapp('i', '<C-j>', '("\\<C-n>")', {noremap=true, expr=true})
+mapp('i', '<C-k>', '("\\<C-p>")', {noremap=true, expr=true})
