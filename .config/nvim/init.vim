@@ -1,9 +1,8 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
 " GENERAL SETTINGS AND MAPPINGS
-source $HOME/.config/nvim/general/settings.vim
+luafile $HOME/.config/nvim/general/settings.lua
 source $HOME/.config/nvim/general/functions.vim
-source $HOME/.config/nvim/keys/mappings.vim
 luafile $HOME/.config/nvim/keys/mappings.lua
 
 " LSP
