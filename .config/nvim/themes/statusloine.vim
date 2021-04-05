@@ -10,6 +10,29 @@ let g:currentmode={
     \ 't'  : 'T'
     \}
 
+let g:getfiletypedict={
+    \ 'typescript' : ' ',
+    \ 'python': ' ',
+    \ 'html' : ' ',
+    \ 'css' : ' ',
+    \ 'javascript' : ' ',
+    \ 'javascriptreact' : ' ',
+    \ 'markdown' : ' ',
+    \ 'sh' : ' ',
+    \ 'vim' : ' ',
+    \ 'rust' : ' ',
+    \ 'cpp' : ' ',
+    \ 'c' : ' ',
+    \ 'go' : ' ',
+    \ 'lua' : ' ',
+    \ 'conf' : ' ',
+    \ '' : ' '
+    \}
+
+" execute 'highlight StslineSecColorFG guifg=' . g:StslineSecColor   ' guibg=' . g:StslineBackColor
+function! Highlighting()
+endfunction
+
 function! StslineMode()
     let l:CurrentMode=mode()
 
@@ -47,10 +70,9 @@ set stl+=\
 set stl+=\ %{g:currentmode[mode()]}
 set stl+=\ %#Arrow#%M
 set stl+=%#Normal#
-set stl+=\ %t
 
 set stl+=%=
-set stl+=\ %y
 set stl+=\ %#Arrow#%#Noice#\ 
-set stl+=\☰\ [%l/%L]\ :%c\ %p%%
+set stl+=%{g:getfiletypedict[&filetype]}
+set stl+=\ ☰\ [%l/%L]\ :%c\ %p%%
 set stl+=\ %#Normal#

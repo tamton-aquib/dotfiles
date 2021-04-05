@@ -22,11 +22,9 @@ luafile $HOME/.config/nvim/lua/lsp/css-lsp.lua
 luafile $HOME/.config/nvim/lua/lsp/rust-lsp.lua
 
 source $HOME/.config/nvim/plug-config/floaterm.vim
-source $HOME/.config/nvim/statusloine.vim
+source $HOME/.config/nvim/themes/statusloine.vim
 source $HOME/.config/nvim/plug-config/markdown-preview.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
 source $HOME/.config/nvim/plug-config/bracey.vim
 
 inoremap <c-k> <cmd>lua return require'snippets'.expand_or_advance(1)<CR>
-colo gruvbox
-let g:gruvbox_contrast_dark = 'hard'
