@@ -29,5 +29,3 @@ source $HOME/.config/nvim/themes/gruvbox.vim
 " source $HOME/.config/nvim/themes/sonokai.vim
 " source $HOME/.config/nvim/themes/molokai.vim
 " source $HOME/.config/nvim/themes/onedark.vim
-
-inoremap <c-k> <cmd>lua return require'snippets'.expand_or_advance(1)<CR>

@@ -1,29 +1,25 @@
 " custom
-set foldmethod=syntax
-set foldlevel=99
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.jsx'
-filetype indent on
-set signcolumn=no 
+inoremap <C-k> <cmd>lua return require'snippets'.expand_or_advance(1)<CR>
 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.jsx'
 let g:python_highlight_space_errors = 0
 let g:pep8_ignore="E501,W601"
 
-autocmd VimEnter,VimLeave * silent !tmux set status off
-
-command! -bang -nargs=? -complete=dir 
-  \ Files call fzf#vim#files(<q-args>, {'source': 'rg --files --glob "!__pycache__/*" --no-ignore-vcs'}, <bang>0)
 
 " set leader key
-let g:mapleader = "\<Space>"
+let g:mapleader = " "
 
+filetype plugin indent on               " Enables indent depending on filetype
 syntax enable                           " Enables syntax highlighing
+set foldmethod=syntax
+set foldlevel=99
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set nowrap                              " Display long lines as just one line
 set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
-set cmdheight=1                         " More space for displaying messages
+set cmdheight=2                         " More space for displaying messages
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
