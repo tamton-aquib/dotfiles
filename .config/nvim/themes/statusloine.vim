@@ -1,9 +1,11 @@
-let g:green = "#2bbb4f"
+let g:green  = "#2bbb4f"
 let g:violet = "#986fec"
-let g:blue = "#4799eb"
+" let violet   = "#b679bd"
+let g:blue   = "#4799eb"
 let g:yellow = "#fff94c"
-let g:back = "#1d2021"
-let g:black = "#000000"
+let g:back   = "#1d2021"
+let g:black  = "#000000"
+let g:red    = "#e27d60"
 
 let g:leftSeparator = ""
 let g:rightSeparator = ""
@@ -17,7 +19,8 @@ let g:currentmode={
     \ 'c'       : ' ',
     \ 'r'       : 'Prompt',
     \ '!'       : ' ',
-    \ 't'       : 'T'
+    \ 't'       : 'T',
+    \ 'R'       : ' '
     \}
 
 let g:getfiletypedict={
@@ -46,14 +49,22 @@ let g:getColor={
     \ "\<C-v>"  : g:blue,
     \ 'i'       : g:green,
     \ 'c'       : g:yellow,
-    \ '!'       : g:yellow,
-    \ 't'       : g:yellow
+    \ '!'       : g:red,
+    \ 't'       : g:red,
+    \ 'R'       : g:red
     \}
 
 function! Highlighting()
     let l:color = g:getColor[mode()]
     execute 'highlight Noice guifg=' . g:black ' guibg=' . l:color
-    execute 'highlight Arrow guifg=' . l:color ' guibg=' . g:back
+    execute 'highlight Arrow guifg=' . l:color
+
+    if has_key(g:getfiletypedict, &filetype)
+        let g:fileIcon = g:getfiletypedict[&filetype]
+    else
+        let g:fileIcon = ""
+    endif
+
     return ""
 endfunction
 
@@ -65,5 +76,5 @@ set stl+=\ %#Arrow#%{g:leftSeparator}\ %M%#Normal#
 set stl+=%=
 
 set stl+=\ %#Arrow#%{rightSeparator}%#Noice#\ 
-set stl+=%{g:getfiletypedict[&filetype]}
-set stl+=\ ☰\ [%l/%L]\ :%c\ %p%%\ 
+set stl+=%{g:fileIcon}
+set stl+=\ [%l/%L]\ :%c\ 並%p%%\ 
