@@ -7,8 +7,8 @@ format = "$directory$git_branch$git_status$package$memory_usage$character"
 truncation_length = 1
 
 [character]
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
+success_symbol = "[»](bold green)"
+error_symbol = "[«](bold red)"
 vicmd_symbol = "[«](bold green)"
 
 [memory_usage]

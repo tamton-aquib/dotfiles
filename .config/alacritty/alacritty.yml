@@ -28,7 +28,7 @@ colors:
     cyan: "#29B8DB"
     white: "#ECEFF4"
 
-background_opacity: 1.0
+background_opacity: 0.8
 
 font:
   # The normal (roman) font face to use.
@@ -94,4 +94,3 @@ shell:
   program: /usr/bin/fish
   args:
     - --login
-    - -c tmux -u
