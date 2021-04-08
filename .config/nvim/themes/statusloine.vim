@@ -1,6 +1,5 @@
 let g:green  = "#2bbb4f"
 let g:violet = "#986fec"
-" let violet   = "#b679bd"
 let g:blue   = "#4799eb"
 let g:yellow = "#fff94c"
 let g:back   = "#1d2021"
@@ -26,8 +25,8 @@ let g:currentmode={
 let g:getfiletypedict={
     \ 'typescript'      : ' ',
     \ 'python'          : ' ',
-    \ 'html'            : ' ',
-    \ 'css'             : ' ',
+    \ 'html'            : ' ',
+    \ 'css'             : ' ',
     \ 'javascript'      : ' ',
     \ 'javascriptreact' : ' ',
     \ 'markdown'        : ' ',

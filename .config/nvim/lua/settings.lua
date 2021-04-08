@@ -32,11 +32,13 @@ vim.o.incsearch = true
 vim.o.showmode = false
 vim.o.showtabline = 2
 vim.o.laststatus = 2
+vim.o.foldlevelstart = 99
+vim.o.shortmess = "c"
 
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.autoindent = true
+vim.api.nvim_command('set tabstop=4')
+vim.api.nvim_command('set shiftwidth=4')
+vim.api.nvim_command('set softtabstop=4')
+vim.api.nvim_command('set autoindent')
 
 vim.bo.smartindent = true
 vim.bo.expandtab = true           --> Not sure about this one

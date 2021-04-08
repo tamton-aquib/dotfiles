@@ -10,7 +10,6 @@ function! Toggle_transparent()
 endfunction
 nnoremap <silent> <C-t> : call Toggle_transparent()<CR>
 
-
 let s:comment_map = { 
     \   "c": '\/\/',
     \   "java": '\/\/',
@@ -20,7 +19,8 @@ let s:comment_map = {
     \   "sh": '#',
     \   "vim": '"',
     \   "rust": '\/\/',
-    \   "lua": '--'
+    \   "lua": '--',
+	\	"conf": '#'
     \ }
 
 function! ToggleComment()

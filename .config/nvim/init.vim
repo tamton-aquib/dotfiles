@@ -1,30 +1,32 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+" THEMES AND STATUSLINE
+" Available => gruvbox, onedark, sonokai
+source $HOME/.config/nvim/themes/onedark.vim
+source $HOME/.config/nvim/themes/barbar_tabline.vim
+
 " GENERAL SETTINGS AND MAPPINGS
-luafile $HOME/.config/nvim/general/settings.lua
 source $HOME/.config/nvim/general/functions.vim
-luafile $HOME/.config/nvim/keys/mappings.lua
+lua require('settings')
+lua require('mappings')
 
 " LSP
-luafile $HOME/.config/nvim/lua/lsp/python-lsp.lua
-luafile $HOME/.config/nvim/lua/lsp/css-lsp.lua
-luafile $HOME/.config/nvim/lua/lsp/rust-lsp.lua
+lua require('lsps')
 
 " PLUG CONFIGS
-luafile $HOME/.config/nvim/lua/plug-colorizer.lua
-luafile $HOME/.config/nvim/lua/snipppets.lua
-luafile $HOME/.config/nvim/lua/telescope-config.lua
-luafile $HOME/.config/nvim/lua/compe-config.lua
+lua require('plug_configs.plug-colorizer')
+lua require('plug_configs.snipppets')
+lua require('plug_configs.telescope-config')
+lua require('plug_configs.compe-config')
+" Vimscript configs
+lua require('plug_configs.floaterm-config')
+lua require('plug_configs.markdown-preview')
+lua require('plug_configs.bracey')
+lua require('plug_configs.startify-config')
+lua require('plug_configs.lspconfig')
 
-source $HOME/.config/nvim/plug-config/floaterm.vim
-source $HOME/.config/nvim/plug-config/markdown-preview.vim
-source $HOME/.config/nvim/plug-config/start-screen.vim
-source $HOME/.config/nvim/plug-config/bracey.vim
-source $HOME/.config/nvim/plug-config/lspconfig.vim
+function! Status()
+    return luaeval("require('statusloine').get_statusline()")
+endfunction
 
-" THEMES
-source $HOME/.config/nvim/themes/statusloine.vim
-source $HOME/.config/nvim/themes/gruvbox.vim
-" source $HOME/.config/nvim/themes/sonokai.vim
-" source $HOME/.config/nvim/themes/molokai.vim
-" source $HOME/.config/nvim/themes/onedark.vim
+set stl=%!Status()

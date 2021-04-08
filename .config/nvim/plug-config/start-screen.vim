@@ -6,7 +6,6 @@ let g:startify_lists = [
           \ { 'type': 'sessions',  'header': ['   Sessions']       },
           \ ]
 
-
 let g:startify_bookmarks = [
             \ { 'Q': '~/.config/qtile/config.py' },
             \ { 'I': '~/.config/nvim/init.vim' },

@@ -8,7 +8,7 @@ let g:rehash256 = 1
 " hi FloatermBorder guibg=#444 guifg=#34568B
 hi FloatermBorder guibg=#444 guifg=#fff
 
-let g:floaterm_borderchars="━┃━┃┏┓┛┗"
+" let g:floaterm_borderchars="━┃━┃┏┓┛┗"
 " let g:floaterm_borderchars="─│─│┌┐┘└"
 
 let g:floaterm_borderchars="═║═║╔╗╝╚"

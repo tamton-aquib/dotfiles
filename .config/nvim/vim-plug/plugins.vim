@@ -1,8 +1,14 @@
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+	Plug 'tomasr/molokai'
+
+	Plug 'oknozor/illumination'
+	Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'romgrk/barbar.nvim'
     " THEMES
     Plug 'joshdick/onedark.vim'
     Plug 'morhetz/gruvbox'
+	Plug 'sainnhe/sonokai'
 
     " Telescope
     Plug 'nvim-lua/popup.nvim'
