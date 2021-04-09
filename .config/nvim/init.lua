@@ -9,6 +9,7 @@ set stl=%!Status()
 ]])
 
 require('plugins-list')
+require('plug_configs.treesittter')
 
 --> GENERAL SETTINGS AND MAPPINGS
 require('general.settings')
