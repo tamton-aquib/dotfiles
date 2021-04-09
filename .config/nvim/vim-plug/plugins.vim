@@ -1,4 +1,3 @@
-
 call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'tomasr/molokai'
 
