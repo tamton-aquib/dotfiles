@@ -19,10 +19,10 @@ local getColor = {
      ['V']    =  blue,
      ['i']    =  green,
      ['ic']   =  green,
-     ['c']    =  yellow,
-     ['t']    =  red,
-     ['r']    =  red,
-     ['R']    =  red
+     ['c']    =  red,
+     ['t']    =  yellow,
+     ['r']    =  yellow,
+     ['R']    =  yellow
 }
 
 local getFileIcon = {
@@ -66,21 +66,15 @@ if (fileIcon == nil)
     fileIcon = ' '
 end
 
-function Highlight(mode)
-    local modeColor = getColor[mode]
-    cmd('hi Noice guibg='..modeColor..' guifg=#000000')
-    cmd('hi Arrow guifg='..modeColor)
-end
-
-function M.get_statusline()
-
-    local mode = vim.api.nvim_get_mode()['mode']
+function M.get_statusline(mode)
+	local mode = vim.api.nvim_get_mode()['mode']
 
     if (moods[mode] == nil)
         then
         mode = 'n'
     end
     local modeIcon = moods[mode]
+    local modeColor = getColor[mode]
 
 	local s = '%#Noice#  '..modeIcon..' %#Arrow#'..leftSeparator..' %M'
 
@@ -89,7 +83,8 @@ function M.get_statusline()
     s = s..'%#Arrow#'..rightSeparator..'%#Noice# '
     s = s..fileIcon..'  [%l/%L] :%c 並%p%%  '
 
-    Highlight(mode)
+    cmd('hi Noice guibg='..modeColor..' guifg=#000000')
+    cmd('hi Arrow guifg='..modeColor)
 	return s
 end
 

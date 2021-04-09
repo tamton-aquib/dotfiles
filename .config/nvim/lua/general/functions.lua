@@ -68,7 +68,7 @@ local mapp = vim.api.nvim_set_keymap
 -- mapp('n', '<C-_>', ':lua toggle_comment()<CR>', {noremap=true})
 
 
-local is_tranparent = 0
+local is_tranparent = 1
 function toggle_transparent()
 	if (is_tranparent == 0)
 		then
