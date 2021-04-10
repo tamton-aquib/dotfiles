@@ -1,4 +1,3 @@
-local cmd = vim.api.nvim_command
 
 stline = require('themes.statusloine')
 require('paq-list')
@@ -6,7 +5,7 @@ require('plug_configs.treesittter')
 
 --> GENERAL SETTINGS AND MAPPINGS
 require('general.settings')
-require('mappings')
+require('general.mappings')
 require('general.functions')
 require('lsps')   --> LSP
 
