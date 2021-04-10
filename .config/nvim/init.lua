@@ -1,9 +1,6 @@
 
-stline = require('themes.statusloine')
-require('paq-list')
-require('plug_configs.treesittter')
-
 --> GENERAL SETTINGS AND MAPPINGS
+require('general.paq-list')
 require('general.settings')
 require('general.mappings')
 require('general.functions')
@@ -19,8 +16,10 @@ require('plug_configs.bracey')
 require('plug_configs.kommmentary')
 require('plug_configs.startify-config')
 require('plug_configs.lspconfig')
+require('plug_configs.treesittter')
 -- require('plug_configs.markdown-preview')
 
 --> THEMES AND STATUSLINE
 require('themes.barbar_tabline')
 require('themes.onedark')           --> gruvbox, onedark or sonokai
+stline = require('themes.statusloine')
