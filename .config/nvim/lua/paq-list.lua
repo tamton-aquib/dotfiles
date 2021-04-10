@@ -4,7 +4,6 @@ paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
 
 --> Temp out
 -- paq 'oknozor/illumination'
--- paq 'AndrewRadev/discotheque.vim'
 -- paq 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 paq 'nvim-treesitter/nvim-treesitter'
@@ -34,4 +33,3 @@ paq 'kdheepak/lazygit.nvim'
 paq 'voldikss/vim-floaterm'
 paq 'alvan/vim-closetag'
 paq 'jiangmiao/auto-pairs'
--- paq 'sheerun/vim-polyglot'
