@@ -5,11 +5,10 @@ local M = {}
 local leftSeparator = ""
 local rightSeparator = ""
 
-
-local green  = "#2bbb4f"
+local green  = "#2bbb4f"	--> "#6ed57e"
 local violet = "#986fec"
-local blue   = "#4799eb"
-local yellow = "#fff94c"
+local blue   = "#4799eb"	--> "#03353e"
+local yellow = "#fff94c"	--> "#ffd55b"
 local black  = "#000000"
 local red    = "#e27d60"
 
@@ -43,7 +42,7 @@ local getFileIcon = {
      conf     = ' ',
 }
 
-local moods = {
+local modes = {
      ['n']   = ' ',
      ['v']   = ' ',
      ['V']   = ' ',
@@ -53,28 +52,27 @@ local moods = {
      ['r']   = 'Prompt',
      ['t']   = 'T',
      ['R']   = ' ',
-     ['\\<C-v>']  = ' '
+     ['^V']  = ' '
      -- [!]       = ' ',
      -- ["<C-v>"]  = ' ',
 }
 
-local extension = vim.api.nvim_call_function('expand', {'%:e'})
-local fileIcon = getFileIcon[extension]
-
-if (fileIcon == nil)
-    then
-    fileIcon = ' '
+function setDefault (t, d)
+  local mt = {__index = function () return d end}
+  setmetatable(t, mt)
 end
 
-function M.get_statusline(mode)
+function M.get_statusline()
 	local mode = vim.api.nvim_get_mode()['mode']
+	local extension = vim.api.nvim_call_function('expand', {'%:e'})
 
-    if (moods[mode] == nil)
-        then
-        mode = 'n'
-    end
-    local modeIcon = moods[mode]
+	setDefault(modes, ' ')
+	setDefault(getFileIcon, ' ')
+	setDefault(getColor, red)
+
+    local modeIcon	= modes[mode]
     local modeColor = getColor[mode]
+	local fileIcon	= getFileIcon[extension]
 
 	local s = '%#Noice#  '..modeIcon..' %#Arrow#'..leftSeparator..' %M'
 
