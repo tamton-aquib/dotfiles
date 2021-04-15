@@ -1,5 +1,7 @@
 
-local html = [[
+local mapp = vim.api.nvim_set_keymap
+-- require'snippets'.use_suggested_mappings()
+local html_bp = [[
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +20,13 @@ local html = [[
 </html>
 ]]
 
+local shebang = [[
+#!/usr/bin/env python3
+]]
+
 require'snippets'.snippets = {
-  _global = {
-      html = html;
-    }
+	_global = {
+		html = html_bp;
+		["#!"] = shebang;
+	}
 }

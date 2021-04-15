@@ -6,7 +6,7 @@ local noresilent = {noremap=true, silent=true}
 
 --> New
 mapp('t', 'jk', '<C-\\><C-n>', noresilent)
-mapp('v', '<F9>', 'y:FloatermNew --autoclose=2<CR>python -c "<C-\\><C-n>pi"<CR><C-\\><C-n>6j', noresilent)
+-- mapp('v', '<F9>', 'y:FloatermNew --autoclose=2<CR>python -c "<C-\\><C-n>pi"<CR><C-\\><C-n>6j', noresilent)
 
 --> Custom
 local noice = [[:lua require('telescope.builtin').find_files(require'telescope.themes'.get_dropdown({previewer=false, winblend=50,width=0.3 }))<CR>]]
@@ -16,24 +16,23 @@ mapp('n', '<leader>a','ggVG',noresilent)
 mapp('n', '<leader>w', 'Iconsole.log(<Esc>A);<Esc>', noresilent)
 mapp('n', '<leader>\'', 'ciw""<Esc>P', noresilent)
 mapp('n', '<C-c>', ':w<CR>:!live_server<CR>', noresilent)
-mapp('i', '<C-k>', "<cmd>lua return require'snippets'.expand_or_advance(1)<CR>", noresilent)
 
 
 cmd('au FileType python set foldmethod=indent')
 cmd('au FileType vim set fdm=marker')
 
 --> Running Files
-cmd('au Filetype vim nnoremap <silent> <leader>r :so %<CR>')
+--[[ cmd('au Filetype lua nnoremap <silent> <leader>r :luafile %<CR>')
 cmd('au Filetype rust nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew rustc % && ./%:t:r && rm ./%:t:r<CR>')
 cmd('au Filetype java nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew javac % && java %:t:r && rm ./*.class<CR>')
 cmd('au FileType c nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew gcc -o thenga % && ./thenga && rm ./thenga<CR>')
 cmd('au FileType javascript nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew node %<CR>')
 cmd('au Filetype python nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew python %<CR>')
-cmd('au FileType sh nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew ./%<CR>')
+cmd('au FileType sh nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew ./%<CR>') ]]
 
 --> Floaterm Mappings
-mapp('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', noresilent)
-mapp('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', noresilent)
+--[[ mapp('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', noresilent)
+mapp('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', noresilent) ]]
 mapp('n','<leader>l', ':LazyGit<Cr>', noresilent)
 
 --> WINDOW Control
@@ -57,6 +56,5 @@ mapp('c', 'W', 'w', noresilent)
 mapp('c', 'Q', 'q', noresilent)
 mapp('v', '<', '<gv', noresilent)
 mapp('v', '>', '>gv', noresilent)
-mapp('i', '<C-j>', '("\\<C-n>")', {noremap=true, expr=true})
-mapp('i', '<C-k>', '("\\<C-p>")', {noremap=true, expr=true})
 mapp('i', '<TAB>', 'pumvisible() ? "\\<C-n>" : "\\<TAB>"', {noremap=true, expr=true})
+mapp("i", "<C-k>", [[<cmd>lua return require'snippets'.expand_or_advance(1)<CR>]], {noremap=true})
