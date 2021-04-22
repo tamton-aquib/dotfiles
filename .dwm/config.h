@@ -1,18 +1,18 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gap pixel between windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int gappx     = 8;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "FiraCode Nerd Font:size=10" };
+static const char dmenufont[]       = "FiraCode Nerd Font:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#ac6fec";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -29,7 +29,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "brave",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       0,            0,           -1 },
 };
 
 /* layout(s) */
@@ -66,10 +66,10 @@ static const char *termcmd[]  = { TERMINAL, NULL };
 
 static Key keys[] = {
     /* MINE */
-	{ 0,                            XK_Print,  spawn,          SHCMD("flameshot gui")},
-	{ MODKEY,                       XK_c,  spawn,          SHCMD("colors")},
-	{ MODKEY,                       XK_t,  spawn,          SHCMD("translate")},
-	{ MODKEY,                       XK_v,  spawn,          SHCMD("vlc")},
+	{ MODKEY,                       XK_Print,   spawn,          SHCMD("flameshot gui")},
+	{ MODKEY,                       XK_c,       spawn,          SHCMD("~/CODES/scripts/colors")},
+	{ MODKEY,                       XK_t,       spawn,          SHCMD("~/CODES/scripts/translate")},
+	{ MODKEY,                       XK_v,       spawn,          SHCMD("vlc")},
 
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
