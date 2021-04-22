@@ -6,7 +6,7 @@ paq 'numtostr/FTerm.nvim'
 
 --> Themes and looks
 paq 'kyazdani42/nvim-web-devicons'
-paq 'romgrk/barbar.nvim'
+-- paq 'romgrk/barbar.nvim'
 paq 'joshdick/onedark.vim'
 paq 'morhetz/gruvbox'
 paq 'sainnhe/sonokai'

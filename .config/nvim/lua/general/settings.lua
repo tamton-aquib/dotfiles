@@ -8,6 +8,7 @@ vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.jsx'
 vim.g.pep8_ignore = "E501,W601"
 
 vim.o.statusline = '%!v:lua.stline.get_statusline()' --> My custom statusline
+vim.o.tabline = '%!v:lua.tabloine.MyTabline()'
 vim.o.mouse = "a"
 vim.o.encoding = "UTF-8"
 vim.o.fileencoding = "UTF-8"

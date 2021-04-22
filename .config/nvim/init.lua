@@ -21,6 +21,7 @@ require('nvim-autopairs').setup()
 require('plug_configs.markdown-preview')
 
 --> THEMES AND STATUSLINE
-require('themes.barbar_tabline')
+-- require('themes.barbar_tabline')
 require('themes.sonokai')           --> gruvbox, onedark, sonokai, vim-monokai-tasty, space-dark, dracula, doom-one
 stline = require('themes.statusloine')
+tabloine = require('themes.tabloine')

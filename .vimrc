@@ -38,8 +38,6 @@ set relativenumber
 set nohlsearch
 set scrolloff=8
 set incsearch
-"set autochdir                           " Your working directory will always be the same as your working directory
-
 
 " You can't stop me
 cmap w!! w !sudo tee %
@@ -108,18 +106,14 @@ call plug#end()
 " }}}
 
 " SONOKAI THEME {{{
-
 let g:sonokai_style = 'andromeda'
 let g:sonokai_enable_italic = 1
-
 syntax on
 
 if (has("termguicolors"))
     set termguicolors
     hi LineNr ctermbg=NONE guibg=NONE
 endif
-
-
 " }}}
 
 " KEY-MAPPINGS {{{
@@ -141,11 +135,6 @@ autocmd Filetype java nnoremap <buffer> <leader>r :w<CR>:FloatermNew javac % && 
 autocmd FileType c nnoremap <buffer> <leader>r :w<CR>:FloatermNew gcc -o thenga % && ./thenga && rm ./thenga<CR>
 autocmd FileType javascript nnoremap <buffer> <leader>r :w<CR>:FloatermNew node %<CR>
 autocmd Filetype python nnoremap <buffer> <leader>r :w<CR>:FloatermNew python %<CR>
-
-
-" Abbreviations
-abbr ture true
-abbr flase false
 
 " Better nav for omnicomplete
 inoremap <expr> <c-j> ("\<C-n>")
