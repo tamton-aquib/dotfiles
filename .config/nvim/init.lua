@@ -13,7 +13,6 @@ require('plug_configs.telescope-config')
 require('plug_configs.compe-config')
 require('plug_configs.fterm')
 require('plug_configs.bracey')
-require('plug_configs.kommmentary')
 require('plug_configs.startify-config')
 require('plug_configs.lspconfig')
 require('plug_configs.treesittter')
@@ -22,6 +21,6 @@ require('plug_configs.markdown-preview')
 
 --> THEMES AND STATUSLINE
 -- require('themes.barbar_tabline')
-require('themes.sonokai')           --> gruvbox, onedark, sonokai, vim-monokai-tasty, space-dark, dracula, doom-one
+require('themes.tokyonight')           --> gruvbox, onedark, sonokai, vim-monokai-tasty, space-dark, dracula, doom-one
 stline = require('themes.statusloine')
 tabloine = require('themes.tabloine')
