@@ -4,9 +4,8 @@ local mapp = vim.api.nvim_set_keymap
 local comment_map = { 
 		c			= '//',
 		java		= '//',
-		javascript	= '//',
-		python		= '//',
-		py			= '#',
+		javascript	= '\\/\\/',
+		python		= '#',
 		sh			= '#',
 		vim			= '"',
 		rust		= '//',
@@ -15,7 +14,7 @@ local comment_map = {
 }
 
 function toggle_comment()
-	local extension = vim.api.nvim_call_function('expand', {'%:e'})
+	local extension = vim.bo.ft
 	local comment_match = comment_map[extension]
 	local comment_leader = comment_match:gsub("%%", "")
     local _, starting, _, _ = unpack(vim.fn.getpos("'<"))

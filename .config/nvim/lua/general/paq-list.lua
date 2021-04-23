@@ -2,20 +2,14 @@ vim.cmd 'packadd paq-nvim'         -- Load package
 local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
 paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
 
-paq 'numtostr/FTerm.nvim'
+paq 'ghifarit53/tokyonight-vim'
 
 --> Themes and looks
 paq 'kyazdani42/nvim-web-devicons'
--- paq 'romgrk/barbar.nvim'
 paq 'joshdick/onedark.vim'
 paq 'morhetz/gruvbox'
 paq 'sainnhe/sonokai'
-paq 'crusoexia/vim-monokai'
-paq 'liuchengxu/space-vim-dark'
-paq 'patstockwell/vim-monokai-tasty'
 paq 'GustavoPrietoP/doom-one.vim'
-paq 'dracula/vim'
-paq 'glepnir/zephyr-nvim'
 --> Web dev Utils
 paq 'norcalli/snippets.nvim'
 paq 'turbio/bracey.vim'
@@ -35,4 +29,3 @@ paq 'kdheepak/lazygit.nvim'
 paq 'alvan/vim-closetag'
 paq 'windwp/nvim-autopairs'
 paq 'nvim-treesitter/nvim-treesitter'
-paq 'kyazdani42/nvim-tree.lua'

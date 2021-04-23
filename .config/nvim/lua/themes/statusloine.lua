@@ -3,7 +3,7 @@ local M = {}
 
 local leftSeparator = ""	-->    
 local rightSeparator = ""	-->    
-local arch_symbol = " "
+local cool_symbol = " "
 
 local green     = "#2bbb4f"	--> "#6ed57e"
 local violet    = "#986fec"
@@ -68,6 +68,18 @@ function call_highlights(modeColor)
 	cmd('hi MidArrow guifg='..lightGrey)
 end
 
+function M.get_tabline()
+	local buff_number = vim.api.nvim_get_current_buf()
+	if vim.bo.modified then modi = " " else modi = "" end
+	local filename = vim.fn.expand("%:t")
+
+	local strfmt = "%%#Noice# %s %s  %s %%#Arrow#"..leftSeparator.."%%#MidArrow#"..leftSeparator
+	local noice = string.format(strfmt, modi , filename, buff_number)
+
+	call_highlights(violet)
+	return noice
+end
+
 function M.get_statusline()
 	local mode = vim.api.nvim_get_mode()['mode']
 	local extension = vim.bo.ft
@@ -86,7 +98,7 @@ function M.get_statusline()
     s = s..'%='
 
     s = s..rightSeparator..'%#Arrow#'..rightSeparator..'%#Noice# '
-    s = s..fileIcon..'  [%l/%L] :%c 並%p%% '.. arch_symbol ..' '
+    s = s..fileIcon..'  [%l/%L] :%c 並%p%% '.. cool_symbol ..' '
 
 	call_highlights(modeColor)
 

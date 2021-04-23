@@ -9,7 +9,7 @@ mapp('t', 'jk', '<C-\\><C-n>', noresilent)
 -- mapp('v', '<F9>', 'y:FloatermNew --autoclose=2<CR>python -c "<C-\\><C-n>pi"<CR><C-\\><C-n>6j', noresilent)
 
 --> Custom
-local noice = [[:lua require('telescope.builtin').find_files(require'telescope.themes'.get_dropdown({previewer=false, winblend=50,width=0.3 }))<CR>]]
+local noice = [[:lua require('telescope.builtin').find_files(require'telescope.themes'.get_dropdown({previewer=false, winblend=50,width=0.5 }))<CR>]]
 mapp('n', '<leader>f', noice, noresilent)
 mapp('i', 'jk', '<Esc>', noresilent)
 mapp('n', '<leader>a','ggVG',noresilent)

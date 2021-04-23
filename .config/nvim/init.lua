@@ -11,7 +11,6 @@ require('plug_configs.plug-colorizer')
 require('plug_configs.snipppets')
 require('plug_configs.telescope-config')
 require('plug_configs.compe-config')
-require('plug_configs.fterm')
 require('plug_configs.bracey')
 require('plug_configs.startify-config')
 require('plug_configs.lspconfig')
@@ -20,7 +19,8 @@ require('nvim-autopairs').setup()
 require('plug_configs.markdown-preview')
 
 --> THEMES AND STATUSLINE
--- require('themes.barbar_tabline')
-require('themes.tokyonight')           --> gruvbox, onedark, sonokai, vim-monokai-tasty, space-dark, dracula, doom-one
+require('themes.tokyonight')           --> gruvbox, onedark, sonokai, doom-one
 stline = require('themes.statusloine')
-tabloine = require('themes.tabloine')
+tabloine = require('themes.statusloine')
+
+vim.cmd [[ autocmd FileType * :norm '" ]]
