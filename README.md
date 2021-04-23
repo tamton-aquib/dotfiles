@@ -17,4 +17,4 @@ ___
 * [Tmux](https://github.com/tmux/tmux/wiki). (Terminal multiplexer)
 * [picom](https://github.com/jonaburg/picom) (Lightweight Compositor)
 * vimrc (For quick copy paste to use on other systems)
-* [emacs](https://github.com/hlissner/doom-emacs) (trying out to see which is better vim/emacs)
+* [emacs](https://github.com/hlissner/doom-emacs) (which is better vim/emacs?)
