@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gappx     = 8;        /* gap pixel between windows */
+static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -68,8 +68,12 @@ static Key keys[] = {
     /* MINE */
 	{ MODKEY,                       XK_Print,   spawn,          SHCMD("flameshot gui")},
 	{ MODKEY,                       XK_c,       spawn,          SHCMD("~/CODES/scripts/colors")},
-	{ MODKEY,                       XK_t,       spawn,          SHCMD("~/CODES/scripts/translate")},
+	{ MODKEY|ShiftMask,             XK_t,       spawn,          SHCMD("~/CODES/scripts/translate")},
 	{ MODKEY,                       XK_v,       spawn,          SHCMD("vlc")},
+
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },

@@ -10,11 +10,8 @@ end
 
 ## Custom settings
 starship init fish | source
-thefuck --alias | source
-
 
 # Sources
-
 for f in (ls ~/.config/fish/functions/)
   source $HOME/.config/fish/functions/$f
 end
