@@ -26,22 +26,22 @@ local getModeColor = {
 }
 
 local getFileIcon = {
-     ts       = ' ' ,
-     py       = ' ' ,
-     html     = ' ' ,
-     css      = ' ' ,
-     js       = ' ' ,
-     jsx      = ' ' ,
-     md       = ' ' ,
-     sh       = ' ',
-     vim      = ' ',
-     rs       = ' ',
-     cpp      = ' ',
-     c        = ' ',
-     go       = ' ',
-     lua      = ' ',
-     conf     = ' ',
-	 txt	  = ' '
+     typescript		= ' ' ,
+     python			= ' ' ,
+     html			= ' ' ,
+     css			= ' ' ,
+     javascript		= ' ' ,
+     jsx			= ' ' ,
+     markdown       = ' ' ,
+     sh				= ' ',
+     vim			= ' ',
+     rust			= ' ',
+     cpp            = ' ',
+     c              = ' ',
+     go             = ' ',
+     lua            = ' ',
+     conf           = ' ',
+	 txt	        = ' '
 }
 
 local modes = {
@@ -50,14 +50,11 @@ local modes = {
      ['V']   = ' ',
      ['i']   = ' ',
      ['ic']  = '',
-     -- ['c']   = ' ',
      ['c']   = ' ',
      ['r']   = 'Prompt',
      ['t']   = 'T',
      ['R']   = ' ',
      ['^V']  = ' '
-     -- [!]       = ' ',
-     -- ["<C-v>"]  = ' ',
 }
 
 function ifNotFound (t, d)
@@ -65,9 +62,15 @@ function ifNotFound (t, d)
   setmetatable(t, mt)
 end
 
+function call_highlights(modeColor)
+    cmd('hi Noice guibg='..modeColor..' guifg=#000000')
+    cmd('hi Arrow guifg='..modeColor..' guibg='..lightGrey)
+	cmd('hi MidArrow guifg='..lightGrey)
+end
+
 function M.get_statusline()
 	local mode = vim.api.nvim_get_mode()['mode']
-	local extension = vim.api.nvim_call_function('expand', {'%:e'})
+	local extension = vim.bo.ft
 
 	ifNotFound(modes, ' ')
 	ifNotFound(getFileIcon, ' ')
@@ -85,9 +88,8 @@ function M.get_statusline()
     s = s..rightSeparator..'%#Arrow#'..rightSeparator..'%#Noice# '
     s = s..fileIcon..'  [%l/%L] :%c 並%p%% '.. arch_symbol ..' '
 
-    cmd('hi Noice guibg='..modeColor..' guifg=#000000')
-    cmd('hi Arrow guifg='..modeColor..' guibg='..lightGrey)
-	cmd('hi MidArrow guifg='..lightGrey)
+	call_highlights(modeColor)
+
 	return s
 end
 
