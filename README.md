@@ -4,8 +4,8 @@
 ___
 
 ### Some stuff I use:
-* [alacritty](https://github.com/alacritty/alacritty). (Terminal emulator)
 * [dwm](https://dwm.suckless.org). (Tiling Window Manager)
+* [alacritty](https://github.com/alacritty/alacritty). (Terminal emulator)
 * [Neovim](https://neovim.io/). (Hyperextensible vim-based text-editor)
 * [Fish](https://fishshell.com/). (Command line shell)
 * [Starship](https://starship.rs/). (Cross shell prompt)
