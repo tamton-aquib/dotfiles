@@ -38,7 +38,6 @@ vim.o.showtabline = 2
 vim.o.laststatus = 2
 vim.o.foldlevelstart = 99
 vim.o.shortmess = "c"
-vim.o.foldmethod = "syntax"
 
 vim.api.nvim_command('set tabstop=4')
 vim.api.nvim_command('set shiftwidth=4')
@@ -53,3 +52,4 @@ vim.wo.relativenumber = true
 vim.wo.wrap = false
 vim.wo.signcolumn = "no"
 vim.wo.cursorline = true
+vim.wo.foldmethod = "syntax"

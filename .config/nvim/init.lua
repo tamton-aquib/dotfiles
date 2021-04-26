@@ -22,5 +22,3 @@ require('plug_configs.markdown-preview')
 require('themes.tokyonight')           --> gruvbox, onedark, sonokai, doom-one
 stline = require('themes.statusloine')
 tabloine = require('themes.statusloine')
-
-vim.cmd [[ autocmd FileType * :norm '" ]]

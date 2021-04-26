@@ -1,16 +1,20 @@
 local cmd = vim.api.nvim_command
 local M = {}
 
-local leftSeparator = ""	-->    
-local rightSeparator = ""	-->    
+local Job = require'plenary.job'
+
+-- local leftSeparator = ""	-->    
+local leftSeparator = " "  -- 
+-- local rightSeparator = ""	-->    
+local rightSeparator = " "  --  
 local cool_symbol = " "
 
 local green     = "#2bbb4f"	--> "#6ed57e"
-local violet    = "#986fec"
+local red		= "#986fec"
 local blue      = "#4799eb"	--> "#03353e"
 local yellow    = "#fff94c"	--> "#ffd55b"
 local black     = "#000000"
-local red       = "#e27d60"
+local violet	= "#e27d60"
 local lightGrey = "#303030"
 
 local getModeColor = {
@@ -66,19 +70,59 @@ function call_highlights(modeColor)
     cmd('hi Noice guibg='..modeColor..' guifg=#000000')
     cmd('hi Arrow guifg='..modeColor..' guibg='..lightGrey)
 	cmd('hi MidArrow guifg='..lightGrey)
+	cmd('hi BranchName guifg='..modeColor)
 end
+
+local noice_color = "#97ce6b"
+
+function call_colors()
+	vim.cmd("hi TabLineSel guibg="..noice_color)
+end
+
+-- function os.capture(cmd, raw)
+--   local f = assert(io.popen(cmd, 'r'))
+--   local s = assert(f:read('*a'))
+--   f:close()
+--   if raw then return s end
+--   s = string.gsub(s, '^%s+', '')
+--   s = string.gsub(s, '%s+$', '')
+--   s = string.gsub(s, '[\n\r]+', ' ')
+--   return s
+-- end
+
+-- local branch = os.capture('git describe --contains --all HEAD')
+
+local branch = Job:new({
+	command = 'git',
+	args = { 'describe', '--contains', '--all', 'HEAD' },
+	on_stdout = function(j, return_val)
+	return return_val
+  end,
+}):sync()[1]
+
+branch = branch and ' '..branch or ""
 
 function M.get_tabline()
-	local buff_number = vim.api.nvim_get_current_buf()
-	if vim.bo.modified then modi = " " else modi = "" end
-	local filename = vim.fn.expand("%:t")
+	local res = ""
+	call_colors()
 
-	local strfmt = "%%#Noice# %s %s  %s %%#Arrow#"..leftSeparator.."%%#MidArrow#"..leftSeparator
-	local noice = string.format(strfmt, modi , filename, buff_number)
+	for i in ipairs(vim.api.nvim_list_bufs()) do
+ 		--local filename = vim.api.nvim_buf_get_name(noice):match("^.+/(.+)$")
+		local filename = vim.fn.expand('%:t')
 
-	call_highlights(violet)
-	return noice
+		if i == vim.api.nvim_get_current_buf() then 
+			res = res.."%#TabLineSel#" 
+		else
+			res = res.."%#TabLine#"
+		end
+		-- if vim.bo.modified then edited = " " else edited = " " end
+		local edited = vim.bo.modified and "  " or " "
+		if filename == nil then filename = "Noice" end
+		res = res .. " " .. filename .." "..edited .. "%#TabLineFill#"
+	end
+	return res
 end
+
 
 function M.get_statusline()
 	local mode = vim.api.nvim_get_mode()['mode']
@@ -93,7 +137,8 @@ function M.get_statusline()
 	local fileIcon	= getFileIcon[extension]
 
 	local s = '%#Noice#  '..modeIcon..' %#Arrow#'..leftSeparator
-	s = s..'%#MidArrow#'..leftSeparator..' %M'
+	s = s..'%#MidArrow#'..leftSeparator
+	s = s.." %#BranchName#"..branch.. ' %M'.. "%#MidArrow#"
 
     s = s..'%='
 

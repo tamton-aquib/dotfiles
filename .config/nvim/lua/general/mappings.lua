@@ -6,6 +6,8 @@ local noresilent = {noremap=true, silent=true}
 
 --> New
 mapp('t', 'jk', '<C-\\><C-n>', noresilent)
+mapp('i', '><Tab>', [[><Esc>?<[a-z]<CR>lyiwo</<C-r>"><Esc>O]], noresilent)
+mapp('i',  '{<CR>',  '{<CR>}<Esc>O', noresilent)
 -- mapp('v', '<F9>', 'y:FloatermNew --autoclose=2<CR>python -c "<C-\\><C-n>pi"<CR><C-\\><C-n>6j', noresilent)
 
 --> Custom
