@@ -3,7 +3,8 @@ local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
 paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
 
 paq 'ghifarit53/tokyonight-vim'
-
+paq 'fhill2/floating.nvim'
+paq 'tamago324/lir.nvim'
 --> Themes and looks
 paq 'kyazdani42/nvim-web-devicons'
 paq 'joshdick/onedark.vim'

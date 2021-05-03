@@ -77,20 +77,8 @@ local noice_color = "#97ce6b"
 
 function call_colors()
 	vim.cmd("hi TabLineSel guibg="..noice_color)
+	vim.cmd("hi TabLineFill guifg="..noice_color)
 end
-
--- function os.capture(cmd, raw)
---   local f = assert(io.popen(cmd, 'r'))
---   local s = assert(f:read('*a'))
---   f:close()
---   if raw then return s end
---   s = string.gsub(s, '^%s+', '')
---   s = string.gsub(s, '%s+$', '')
---   s = string.gsub(s, '[\n\r]+', ' ')
---   return s
--- end
-
--- local branch = os.capture('git describe --contains --all HEAD')
 
 local branch = Job:new({
 	command = 'git',
@@ -103,23 +91,17 @@ local branch = Job:new({
 branch = branch and ' '..branch or ""
 
 function M.get_tabline()
-	local res = ""
 	call_colors()
 
-	for i in ipairs(vim.api.nvim_list_bufs()) do
- 		--local filename = vim.api.nvim_buf_get_name(noice):match("^.+/(.+)$")
-		local filename = vim.fn.expand('%:t')
+	local filename = vim.fn.expand('%:t')
+	if filename == nil then filename = "Noice" end
 
-		if i == vim.api.nvim_get_current_buf() then 
-			res = res.."%#TabLineSel#" 
-		else
-			res = res.."%#TabLine#"
-		end
-		-- if vim.bo.modified then edited = " " else edited = " " end
-		local edited = vim.bo.modified and "  " or " "
-		if filename == nil then filename = "Noice" end
-		res = res .. " " .. filename .." "..edited .. "%#TabLineFill#"
-	end
+	local buff_num = vim.api.nvim_buf_get_number(vim.api.nvim_get_current_buf())
+	local edited = vim.bo.modified and "  " or " "
+
+	local res = "%#TabLineSel# "..buff_num.." "..filename..edited
+	res = res .. " %#TabLineFill#"..leftSeparator
+
 	return res
 end
 

@@ -1,13 +1,13 @@
-vim.cmd('autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o')
-vim.cmd('set iskeyword+=-')
-vim.cmd('syntax enable')
-vim.cmd("filetype plugin indent on")
-vim.cmd('set inccommand=split')
+local cmd = vim.api.nvim_command
 
-vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.jsx'
-vim.g.pep8_ignore = "E501,W601"
+cmd('set iskeyword+=-')
+cmd('syntax enable')
+-- cmd("filetype plugin indent on")
+cmd('set inccommand=split')
+cmd('set nomore')
 
--- vim.o.formatoptions = "cro"
+
+vim.o.formatoptions = "cro"
 
 vim.o.statusline = '%!v:lua.stline.get_statusline()'
 vim.o.tabline = '%!v:lua.tabloine.get_tabline()'
@@ -18,14 +18,13 @@ vim.o.termguicolors = true
 vim.o.background = "dark"
 vim.o.hidden = true
 vim.o.scrolloff = 8
-vim.o.timeoutlen = 200
+vim.o.timeoutlen = 300
 vim.o.updatetime = 500
 vim.o.hlsearch = false
 vim.o.clipboard = "unnamedplus"
 vim.o.smarttab = true
 vim.o.backup = false
 vim.o.writebackup = false
-vim.o.foldenable = true
 vim.o.conceallevel = 0
 vim.o.cmdheight = 1
 vim.o.splitright = true
@@ -36,20 +35,21 @@ vim.o.incsearch = true
 vim.o.showmode = false
 vim.o.showtabline = 2
 vim.o.laststatus = 2
+vim.o.foldenable = true
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevelstart = 99
-vim.o.shortmess = "c"
 
-vim.api.nvim_command('set tabstop=4')
-vim.api.nvim_command('set shiftwidth=4')
-vim.api.nvim_command('set softtabstop=4')
-vim.api.nvim_command('set autoindent')
-
-vim.bo.smartindent = true
-vim.bo.expandtab = true           --> Not sure about this one
+cmd('set ts=4')
+cmd('set softtabstop=4')
+cmd('set sw=4')
+cmd('set autoindent')
+vim.bo.expandtab = true
 
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.wrap = false
 vim.wo.signcolumn = "no"
 vim.wo.cursorline = true
-vim.wo.foldmethod = "syntax"
+
+cmd('autocmd BufNewFile,BufRead * setlocal formatoptions-=cro')
