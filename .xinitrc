@@ -15,8 +15,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-exec ~/.config/autostart/date_and_others.sh &
-/home/taj/.config/autostart/autostart.sh &
+xset r 250 50
+
+exec dwmbar &
+~/CODES/scripts/dwmscripts/autostart &
 
 while true; do
     dwm >/dev/null 2>&1

@@ -8,7 +8,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCode Nerd Font:size=10" };
 static const char dmenufont[]       = "FiraCode Nerd Font:size=10";
-static const char col_gray1[]       = "#f47a60";
+// static const char col_gray1[]       = "#f47a60";
+static const char col_gray1[]       = "#e27d60";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#320d3e";
 static const char col_gray4[]       = "#f47a60";
@@ -23,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "  ", "", "嗢", " ", " ", "6", "7", "8", "9" };
+static const char *tags[] = { " ", "", "嗢", "", " " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -42,9 +43,12 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	// { "[]=",      tile },    /* first entry is default */
+	// { "><>",      NULL },    /* no layout function means floating behavior */
+	// { "[M]",      monocle },
+	{ "┃  ",   tile },    /* first entry is default */
+	{ "┃  ",  NULL },    /* no layout function means floating behavior */
+	{ "┃ 穀",   monocle },
 };
 
 /* key definitions */
@@ -71,7 +75,7 @@ static Key keys[] = {
     /* MINE */
 	{ 0,                            XK_Print,   spawn,          SHCMD("flameshot gui")},
 	{ MODKEY,                       XK_c,       spawn,          SHCMD("colors")},
-	{ MODKEY|ShiftMask,             XK_t,       spawn,          SHCMD("translate")},
+	{ MODKEY|ShiftMask,             XK_t,       spawn,          SHCMD("~/CODES/scripts/translate")},
 	{ MODKEY,                       XK_v,       spawn,          SHCMD("vlc")},
 	{ MODKEY,                       XK_Up,      spawn,          SHCMD("volume_up")},
 	{ MODKEY,                       XK_Down,    spawn,          SHCMD("volume_down")},
