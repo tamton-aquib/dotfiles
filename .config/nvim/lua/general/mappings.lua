@@ -9,7 +9,7 @@ map('t', 'jk', '<C-\\><C-n>', noresilent)
 map('i', '>>', '><Esc>?<[a-z]<CR>lyiwo</<C-r>"><Esc>O', noresilent)
 map('n', '<leader>n', ":lua require'lir.float'.toggle()<CR>", noresilent)
 map('i',  '{<CR>',  '{<CR>}<Esc>O', noresilent)
--- mapp('v', '<F9>', 'y:FloatermNew --autoclose=2<CR>python -c "<C-\\><C-n>pi"<CR><C-\\><C-n>6j', noresilent)
+map('v', '<F9>', 'y:FloatermNew --autoclose=2<CR>python -c "<C-\\><C-n>pi"<CR><C-\\><C-n>6j', noresilent)
 
 --> Custom
 local noice = [[:lua require('telescope.builtin').find_files(require'telescope.themes'.get_dropdown({previewer=false, winblend=50,width=0.5 }))<CR>]]
@@ -21,18 +21,18 @@ map('n', '<leader>\'', 'ciw""<Esc>P', noresilent)
 map('n', '<C-c>', ':w<CR>:silent !live_server<CR>', noresilent)
 
 --> Running Files
---[[ cmd('au Filetype lua nnoremap <silent> <leader>r :luafile %<CR>')
+cmd('au Filetype lua nnoremap <silent> <leader>r :luafile %<CR>')
 cmd('au Filetype rust nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew rustc % && ./%:t:r && rm ./%:t:r<CR>')
 cmd('au Filetype java nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew javac % && java %:t:r && rm ./*.class<CR>')
 cmd('au FileType c nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew gcc -o thenga % && ./thenga && rm ./thenga<CR>')
 cmd('au FileType javascript nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew node %<CR>')
 cmd('au Filetype python nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew python %<CR>')
-cmd('au FileType sh nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew ./%<CR>') ]]
+cmd('au FileType sh nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew ./%<CR>')
 
 --> Floaterm Mappings
---[[ mapp('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', noresilent)
-mapp('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', noresilent) ]]
-map('n','<leader>l', ':LazyGit<Cr>', noresilent)
+map('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', noresilent)
+map('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', noresilent)
+map('n','<leader>l', ':FloatermNew --autoclose=2 lazygit<Cr>', noresilent)
 
 --> WINDOW Control
 map('n', '<C-h>','<C-w>h', noresilent)

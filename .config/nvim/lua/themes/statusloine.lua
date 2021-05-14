@@ -76,7 +76,7 @@ end
 local noice_color = "#97ce6b"
 
 function call_colors()
-	vim.cmd("hi TabLineSel guibg="..noice_color)
+	vim.cmd("hi TabLineSel guibg="..noice_color..' guifg=black')
 	vim.cmd("hi TabLineFill guifg="..noice_color)
 end
 

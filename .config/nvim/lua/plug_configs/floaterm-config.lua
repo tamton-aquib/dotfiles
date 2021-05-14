@@ -6,4 +6,4 @@ vim.g.floaterm_borderchars = '═║═║╔╗╝╚'
 
 vim.g.rehash256 = 1
 
-vim.api.nvim_command('hi FloatermBorder guibg=#444 guifg=#34568B')
+vim.api.nvim_command('hi FloatermBorder guibg=none')

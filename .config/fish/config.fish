@@ -1,23 +1,25 @@
-set TERM "xterm-256color"             
+set TERM "alacritty"             
 set EDITOR "nvim"
 set VISUAL "kate"
 set fish_greeting
 
-if status --is-interactive
-   clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo
+if status is-interactive
+  cd $HOME
 end
-
 
 ## Custom settings
 starship init fish | source
 
 # Sources
-for f in (ls ~/.config/fish/functions/)
-  source $HOME/.config/fish/functions/$f
-end
+source ~/.bash_aliases
 
-source $HOME/.config/fish/aliases.fish
-source $HOME/.config/fish/exports.fish
+set fish_cursor_unknown block
+
+fish_add_path ~/CODES/scripts/dwmscripts/
+fish_add_path ~/CODES/scripts/
+fish_add_path ~/.local/bin/
+
+
 
 # Vi mode mapped Esc to jk
 function fish_user_key_bindings

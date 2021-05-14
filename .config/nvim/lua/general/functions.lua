@@ -2,13 +2,13 @@ local cmd = vim.api.nvim_command
 local mapp = vim.api.nvim_set_keymap
 
 local comment_map = { 
-		c			= '//',
+		c			= '%\\/%\\/',
 		java		= '//',
-		javascript	= '\\/\\/',
+		javascript	= '%\\/%\\/',
 		python		= '#',
 		sh			= '#',
 		vim			= '"',
-		rust		= '//',
+		rust		= '%\\/%\\/',
 		lua			= '%-%-',
 		conf		= '#'
 }
@@ -39,7 +39,6 @@ end
 mapp('v', '<C-_>', ':lua toggle_comment()<CR>', {noremap=true, silent=true})
 mapp('n', '<C-_>', ':lua toggle_comment()<CR>', {noremap=true})
 
-
 local is_tranparent = 1
 function toggle_transparent()
 	if (is_tranparent == 0)
@@ -53,3 +52,4 @@ function toggle_transparent()
 end
 
 mapp('n', '<C-t>', ':lua toggle_transparent()<CR>', {noremap=true})
+
