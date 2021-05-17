@@ -38,18 +38,24 @@ vim.o.laststatus = 2
 vim.o.foldenable = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-vim.o.foldlevelstart = 99
+vim.o.foldlevelstart = 25
 
-cmd('set ts=4')
-cmd('set softtabstop=4')
-cmd('set sw=4')
-cmd('set autoindent')
-vim.bo.expandtab = true
+function on_file_enter()
+    vim.bo.expandtab = false
+    vim.bo.copyindent = true
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.autoindent = true
+    vim.bo.smartindent = true
+
+    vim.cmd("norm '\"")
+end
+vim.cmd [[ autocmd FileType * :lua on_file_enter() ]]
 
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.wrap = false
-vim.wo.signcolumn = "no"
 vim.wo.cursorline = true
 
 cmd('autocmd BufNewFile,BufRead * setlocal formatoptions-=cro')

@@ -33,6 +33,7 @@ cmd('au FileType sh nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew ./%<
 map('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', noresilent)
 map('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', noresilent)
 map('n','<leader>l', ':FloatermNew --autoclose=2 lazygit<Cr>', noresilent)
+-- map('n','<leader>l', ':LazyGit<Cr>', noresilent)
 
 --> WINDOW Control
 map('n', '<C-h>','<C-w>h', noresilent)
