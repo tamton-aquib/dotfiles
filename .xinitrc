@@ -19,6 +19,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 exec dwmbar &
+
+xset r rate 200 35
+
 ~/CODES/scripts/dwmscripts/autostart &
 
 while true; do
