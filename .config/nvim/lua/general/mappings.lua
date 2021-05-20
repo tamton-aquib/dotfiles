@@ -6,10 +6,6 @@ local noresilent = {noremap=true, silent=true}
 
 --> New
 map('t', 'jk', '<C-\\><C-n>', noresilent)
-map('i', '>>', '><Esc>?<[a-z]<CR>lyiwo</<C-r>"><Esc>O', noresilent)
-map('n', '<leader>n', ":lua require'lir.float'.toggle()<CR>", noresilent)
-map('i',  '{<CR>',  '{<CR>}<Esc>O', noresilent)
-map('v', '<F9>', 'y:FloatermNew --autoclose=2<CR>python -c "<C-\\><C-n>pi"<CR><C-\\><C-n>6j', noresilent)
 
 --> Custom
 local noice = [[:lua require('telescope.builtin').find_files(require'telescope.themes'.get_dropdown({previewer=false, winblend=50,width=0.5 }))<CR>]]

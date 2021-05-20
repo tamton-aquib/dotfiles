@@ -7,6 +7,7 @@ paq 'voldikss/vim-floaterm'
 paq 'nvim-treesitter/playground'
 paq 'folke/todo-comments.nvim'
 paq 'shaunsingh/nord.nvim'
+paq 'steelsojka/pears.nvim'
 
 --> Themes and looks
 paq 'kyazdani42/nvim-web-devicons'
@@ -29,5 +30,4 @@ paq 'kabouzeid/nvim-lspinstall'
 --> General Purpose
 paq 'mhinz/vim-startify'
 paq 'norcalli/nvim-colorizer.lua'
-paq 'windwp/nvim-autopairs'
 paq 'nvim-treesitter/nvim-treesitter'

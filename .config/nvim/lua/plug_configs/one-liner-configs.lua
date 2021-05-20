@@ -11,5 +11,8 @@ require'todo-comments'.setup{}
 require'lspkind'.init({with_text=false})
 
 --> Nvim-Autopairs
-require 'nvim-autopairs'.setup{}
+require "pears".setup()
+
+--> folke-todo-coments
+require'todo-comments'.setup{}
 

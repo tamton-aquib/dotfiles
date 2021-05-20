@@ -24,9 +24,22 @@ local shebang = [[
 #!/usr/bin/env python3
 ]]
 
+local react_rfc = [[
+import React from 'react';
+
+function ${-1=vim.fn.expand('%:t:r')}() {
+	return (
+		${0}
+	);
+}
+
+export default ${-1}
+]]
+
 require'snippets'.snippets = {
 	_global = {
 		html = html_bp;
-		["#!"] = shebang;
+		shebang = shebang;
+		rfc = react_rfc;
 	}
 }
