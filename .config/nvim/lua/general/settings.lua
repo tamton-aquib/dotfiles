@@ -9,8 +9,6 @@ cmd('set nomore')
 
 vim.o.formatoptions = "cro"
 
-vim.o.statusline = '%!v:lua.stline.get_statusline()'
-vim.o.tabline = '%!v:lua.tabloine.get_tabline()'
 vim.o.mouse = "a"
 vim.o.encoding = "UTF-8"
 vim.o.fileencoding = "UTF-8"

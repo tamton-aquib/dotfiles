@@ -14,7 +14,7 @@ local html_bp = [[
 <body>
     ${0}
 
-    <script type="application/javascript" src="noice.js"></script>
+    <script src="noice.js"></script>
 </body>
 
 </html>
@@ -43,3 +43,4 @@ require'snippets'.snippets = {
 		rfc = react_rfc;
 	}
 }
+

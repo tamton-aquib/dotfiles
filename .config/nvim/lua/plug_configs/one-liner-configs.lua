@@ -16,3 +16,18 @@ require "pears".setup()
 --> folke-todo-coments
 require'todo-comments'.setup{}
 
+
+--> staline setup
+require'staline'.setup{
+	defaults = {
+		cool_symbol = " ",
+		leftSeparator = " ",
+		rightSeparator = " ",
+	},
+	mode_colors = {
+		n = "#e27d60"
+	}
+}
+-- local leftSeparator = ""	-->    
+-- local rightSeparator = ""	-->    
+

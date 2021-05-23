@@ -7,8 +7,10 @@ require 'lsps'
 
 --> THEMES AND STATUSLINE
 require('themes.onedark') --> gruvbox, onedark, sonokai, nord
+require'staline'.tabline_init()
 
 --> PLUG CONFIGS
+require 'plug_configs.one-liner-configs'
 require 'plug_configs.plug-colorizer'
 require 'plug_configs.snipppets'
 require 'plug_configs.telescope-config'
@@ -17,5 +19,4 @@ require 'plug_configs.startify-config'
 require 'plug_configs.lspconfig'
 require 'plug_configs.treesittter'
 require 'plug_configs.floaterm-config'
-require 'plug_configs.one-liner-configs'
 
