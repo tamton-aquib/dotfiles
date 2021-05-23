@@ -7,8 +7,6 @@ require 'lsps'
 
 --> THEMES AND STATUSLINE
 require('themes.onedark') --> gruvbox, onedark, sonokai, nord
-stline = require('themes.statusloine')
-tabloine = require('themes.statusloine')
 
 --> PLUG CONFIGS
 require 'plug_configs.plug-colorizer'
