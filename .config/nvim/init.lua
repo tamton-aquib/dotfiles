@@ -1,3 +1,4 @@
+
 --> GENERAL SETTINGS AND MAPPINGS
 require 'general.paq-list'
 require 'general.settings'
@@ -6,8 +7,8 @@ require 'general.functions'
 require 'lsps'
 
 --> THEMES AND STATUSLINE
-require('themes.onedark') --> gruvbox, onedark, sonokai, nord
-require'staline'.tabline_init()
+require 'themes.sonokai' --> gruvbox, onedark, sonokai
+require 'plug_configs.staline'
 
 --> PLUG CONFIGS
 require 'plug_configs.one-liner-configs'
