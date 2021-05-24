@@ -1,190 +1,56 @@
+
 [global]
-monitor = 0
+    font = Monospace 8
+    allow_markup = no
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = right
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    geometry = "200x5-30+20"
+    shrink = no
+    transparency = 1
+    idle_threshold = 120
+    monitor = 0
+    follow = keyboard
+    sticky_history = yes
+    history_length = 5
+    show_indicators = yes
+    line_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    separator_color = frame
+    startup_notification = yes
+    dmenu = /usr/bin/dmenu -p dunst:
+    # browser = /usr/bin/firefox -new-tab
+    icon_position = off
+    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
-follow = keyboard
-
-geometry = "380x7-0+42"
-
-# Show how many messages are currently hidden (because of geometry).
-indicate_hidden = yes
-
-# Shrink window if it's smaller than the width.  Will be ignored if
-shrink = no
-
-# The transparency of the window.  Range: [0; 100].
-# This option will only work if a compositing window manager is
-# present (e.g. xcompmgr, compiz, etc.).
-transparency = 100
-
-# The height of the entire notification.  If the height is smaller
-# than the font height and padding combined, it will be raised
-# to the font height and padding.
-notification_height = 0
-
-# Draw a line of "separator_height" pixel height between two
-# notifications.
-# Set to 0 to disable.
-separator_height = 5
-
-# Padding between text and separator.
-padding = 12
-
-# Horizontal padding.
-horizontal_padding = 8
-
-# Defines width in pixels of frame around the notification window.
-# Set to 0 to disable.
-frame_width = 2
-
-# Defines color of the frame around the notification window.
-frame_color = "#282c34"
-
-# Define a color for the separator.
-# possible values are:
-#  * auto: dunst tries to find a color fitting to the background;
-#  * foreground: use the same color as the foreground;
-#  * frame: use the same color as the frame;
-#  * anything else will be interpreted as a X color.
-separator_color = frame
-
-# Sort messages by urgency.
-sort = yes
-
-# Don't remove messages, if the user is idle (no mouse or keyboard input)
-# for longer than idle_threshold seconds.
-# Set to 0 to disable.
-idle_threshold = 120
-
-font = Noto Sans 11
-
-# The spacing between lines.  If the height is smaller than the
-# font height, it will get raised to the font height.
-line_height = 0
-
-# Possible values are:
-# full: Allow a small subset of html markup in notifications:
-#        <b>bold</b>
-#        <i>italic</i>
-#        <s>strikethrough</s>
-#        <u>underline</u>
-#
-#        For a complete reference see
-#        <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
-#
-# It's important to note that markup inside the format option will be parsed
-# regardless of what this is set to.
-markup = full
-
-# The format of the message.  Possible variables are:
-#   %a  appname
-#   %s  summary
-#   %b  body
-#   %i  iconname (including its path)
-#   %I  iconname (without its path)
-#   %p  progress value if set ([  0%] to [100%]) or nothing
-#   %n  progress value if set without any extra characters
-# Markup is allowed
-format = "<b>%s</b>\n%b"
-
-# Alignment of message text.
-# Possible values are "left", "center" and "right".
-alignment = left
-
-# Show age of message if message is older than show_age_threshold
-# seconds.
-# Set to -1 to disable.
-show_age_threshold = 60
-
-# Split notifications into multiple lines if they don't fit into
-# geometry.
-word_wrap = yes
-
-# Ignore newlines '\n' in notifications.
-ignore_newline = no
-
-# Merge multiple notifications with the same content
-stack_duplicates = true
-
-# Hide the count of merged notifications with the same content
-hide_duplicate_count = false
-
-# Display indicators for URLs (U) and actions (A).
-show_indicators = yes
-
-# Align icons left/right/off
-icon_position = right
-
-# Scale larger icons down to this size, set to 0 to disable
-max_icon_size = 48
-
-# Paths to default icons.
-# icon_path = /usr/share/icons/Papirus-Dark/48x48/apps:/usr/share/icons/Papirus-Dark/48x48/categories:/usr/share/icons/Papirus-Dark/48x48/devices:/usr/share/icons/Papirus-Dark/48x48/emblems:/usr/share/icons/Papirus-Dark/48x48/mimetypes:/usr/share/icons/Papirus-Dark/48x48/places:/usr/share/icons/Papirus-Dark/48x48/status
-
-# Should a notification popped up from history be sticky or timeout
-# as if it would normally do.
-sticky_history = yes
-
-# Maximum amount of notifications kept in history
-history_length = 20
-
-# dmenu path
-dmenu = rofi -dmenu -p dunst
-
-# Browser for opening urls in context menu.
-browser = brave
-
-# Always run rule-defined scripts, even if the notification is suppressed
-always_run_script = true
-
-# Define the title of the windows spawned by dunst
-title = Dunst
-
-# Define the class of the windows spawned by dunst
-class = Dunst
-
-# Print a notification on startup.
-# This is mainly for error detection, since dbus (re-)starts dunst
-# automatically after a crash.
-startup_notification = false
-
-# Mouse
-mouse_left_click = do_action
-
-# Round corners
-corner_radius = 10
-
-[experimental]
-per_monitor_dpi = true
-
+# [frame]
+#     width = 3
+#     color = "#aaaaaa"
 
 [shortcuts]
-close = ctrl+space
-close_all = ctrl+shift+space
-history = ctrl+grave
-# Context menu (to jump to notification)
-context = ctrl+shift+j
-
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
 
 [urgency_low]
-background = "#24272e"
-foreground = "#abb2bf"
-timeout = 7
-
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 10
 
 [urgency_normal]
-background = "#24272e"
-foreground = "#abb2bf"
-timeout = 7
-
+    background = "#e27d60"
+    foreground = "#000000"
+    timeout = 10
 
 [urgency_critical]
-background = "#24272e"
-foreground = "#abb2bf"
-frame_color = "#e06c75"
-timeout = 0
-
-# Per app rules
-[Spotify]
-appname = Spotify
-new_icon = Spotify
-timeout = 3
+    background = "#900000"
+    foreground = "#ffffff"
+    timeout = 0
