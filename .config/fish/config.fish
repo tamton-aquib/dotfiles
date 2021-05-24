@@ -1,16 +1,22 @@
 set TERM "alacritty"             
 set EDITOR "nvim"
 set VISUAL "kate"
+set BROWSER "brave"
 set fish_greeting
 
 if status is-interactive
   cd $HOME
 end
 
-## Custom settings
-starship init fish | source
+# Start X at login
+if status --is-login
+  if test -z "$DISPLAY" -a $XDG_VTNR = 1
+    exec startx -- -keeptty
+  end
+end
 
 # Sources
+starship init fish | source
 source ~/.bash_aliases
 
 set fish_cursor_unknown block
@@ -18,7 +24,7 @@ set fish_cursor_unknown block
 fish_add_path ~/CODES/scripts/dwmscripts/
 fish_add_path ~/CODES/scripts/
 fish_add_path ~/.local/bin/
-
+fish_add_path ~/.cargo/bin/
 
 
 # Vi mode mapped Esc to jk
