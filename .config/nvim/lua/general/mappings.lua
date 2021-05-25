@@ -4,8 +4,6 @@ local map = vim.api.nvim_set_keymap
 local cmd = vim.api.nvim_command
 local noresilent = {noremap=true, silent=true}
 
---> New
--- map('t', 'jk', '<C-\\><C-n>', noresilent)
 
 --> Custom
 local noice = [[:lua require('telescope.builtin').find_files(require'telescope.themes'.get_dropdown({previewer=false, width=0.5 }))<CR>]]
@@ -15,9 +13,11 @@ map('n', '<leader>a','ggVG',noresilent)
 map('n', '<leader>w', 'Iconsole.log(<Esc>A);<Esc>', noresilent)
 map('n', '<leader>\'', 'ciw""<Esc>P', noresilent)
 map('n', '<C-c>', ':w<CR>:silent !live_server<CR>', noresilent)
+map('n', '<leader>n', ":lua require'lir.float'.toggle()<CR>", noresilent)
+-- map('t', 'jk', '<C-\\><C-n>', noresilent)
 
 --> Running Files
-cmd('au Filetype lua nnoremap <silent> <leader>r :luafile %<CR><bar>:PaqInstall<CR>')
+cmd('au Filetype lua nnoremap <silent> <leader>r :luafile %<CR>')
 cmd('au Filetype rust nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew rustc % && ./%:t:r && rm ./%:t:r<CR>')
 cmd('au Filetype java nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew javac % && java %:t:r && rm ./*.class<CR>')
 cmd('au FileType c nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew gcc -o thenga % && ./thenga && rm ./thenga<CR>')

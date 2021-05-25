@@ -16,4 +16,6 @@ require "pears".setup()
 --> folke-todo-coments
 require'todo-comments'.setup{}
 
+--> Emmet configs
+vim.g.user_emmet_leader_key=','
 
