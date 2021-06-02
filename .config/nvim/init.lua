@@ -6,7 +6,7 @@ require 'general.mappings'
 require 'general.functions'
 
 --> THEMES AND STATUSLINE
-require 'themes.sonokai' --> gruvbox, onedark, sonokai
+require 'themes.onedark' --> gruvbox, onedark, sonokai
 require 'plug_configs.staline'
 
 --> PLUG CONFIGS

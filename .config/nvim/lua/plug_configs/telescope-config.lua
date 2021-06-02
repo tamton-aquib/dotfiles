@@ -28,7 +28,7 @@ require('telescope').setup{
       },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = {"autoload", ".git"},
+    file_ignore_patterns = {"autoload", ".git", "node_modules", "__pycache__"},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,

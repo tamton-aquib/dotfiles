@@ -10,7 +10,6 @@ local noice = [[:lua require('telescope.builtin').find_files(require'telescope.t
 map('n', '<leader>f', noice, noresilent)
 map('i', 'jk', '<Esc>', noresilent)
 map('n', '<leader>a','ggVG',noresilent)
-map('n', '<leader>w', 'Iconsole.log(<Esc>A);<Esc>', noresilent)
 map('n', '<leader>\'', 'ciw""<Esc>P', noresilent)
 map('n', '<C-c>', ':w<CR>:silent !live_server<CR>', noresilent)
 map('n', '<leader>n', ":lua require'lir.float'.toggle()<CR>", noresilent)
@@ -21,15 +20,13 @@ cmd('au Filetype lua nnoremap <silent> <leader>r :luafile %<CR>')
 cmd('au Filetype rust nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew rustc % && ./%:t:r && rm ./%:t:r<CR>')
 cmd('au Filetype java nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew javac % && java %:t:r && rm ./*.class<CR>')
 cmd('au FileType c nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew gcc -o thenga % && ./thenga && rm ./thenga<CR>')
-cmd('au FileType javascript nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew node %<CR>')
 cmd('au Filetype python nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew python %<CR>')
-cmd('au FileType sh nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew ./%<CR>')
 
 --> Floaterm Mappings
 map('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', noresilent)
 map('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', noresilent)
--- map('n','<leader>l', ':FloatermNew --autoclose=2 lazygit<Cr>', noresilent)
-map('n','<leader>l', ':LazyGit<Cr>', noresilent)
+map('n','<leader>l', ':FloatermNew --autoclose=2 lazygit<Cr>', noresilent)
+-- map('n','<leader>l', ':LazyGit<Cr>', noresilent)
 
 --> WINDOW Control
 map('n', '<C-h>','<C-w>h', noresilent)

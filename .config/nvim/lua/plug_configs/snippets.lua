@@ -41,6 +41,7 @@ ls.snippets = {
 		parse({trig="html", wordTrig=true}, html_bp),
 		parse({trig="#!", wordTrig=true}, shebang),
 		parse({trig="rfc", wordTrig=true}, react_rfc),
+		parse({trig="conso", wordTrig=true}, [[console.log("${0}")]])
 	}
 }
 

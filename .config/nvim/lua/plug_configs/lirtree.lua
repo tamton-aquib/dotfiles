@@ -42,5 +42,5 @@ require'lir'.setup {
     -- -- Also, if you set shadow to true, the value of `borderchars` will be ignored.
     shadow = true,
   },
-  hide_cursor = true,
+  hide_cursor = false,
 }
