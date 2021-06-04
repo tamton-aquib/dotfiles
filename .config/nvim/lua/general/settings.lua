@@ -2,12 +2,11 @@ local cmd = vim.api.nvim_command
 
 cmd('set iskeyword+=-')
 cmd('syntax enable')
--- cmd("filetype plugin indent on")
+cmd("filetype plugin indent on")
 cmd('set inccommand=split')
 cmd('set nomore')
 
-
-vim.o.formatoptions = "cro"
+-- vim.o.formatoptions = "cro"
 
 vim.o.mouse = "a"
 vim.o.encoding = "UTF-8"
@@ -55,5 +54,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.wrap = false
 vim.wo.cursorline = true
+vim.wo.list = true
+vim.wo.listchars = 'tab:┊ '
 
-cmd('autocmd BufNewFile,BufRead * setlocal formatoptions-=cro')
+-- cmd('autocmd BufNewFile,BufRead * setlocal formatoptions-=cro')
