@@ -2,52 +2,38 @@ vim.g.mapleader = ' '
 
 local map = vim.api.nvim_set_keymap
 local cmd = vim.api.nvim_command
-local noresilent = {noremap=true, silent=true}
-
+local noice = {noremap=true, silent=true}
 
 --> Custom
-local noice = [[:lua require('telescope.builtin').find_files(require'telescope.themes'.get_dropdown({previewer=false, width=0.5 }))<CR>]]
-map('n', '<leader>f', noice, noresilent)
-map('i', 'jk', '<Esc>', noresilent)
-map('n', '<leader>a','ggVG',noresilent)
-map('n', '<leader>\'', 'ciw""<Esc>P', noresilent)
-map('n', '<C-c>', ':w<CR>:silent !live_server<CR>', noresilent)
-map('n', '<leader>n', ":lua require'lir.float'.toggle()<CR>", noresilent)
--- map('t', 'jk', '<C-\\><C-n>', noresilent)
-
---> Running Files
-cmd('au Filetype lua nnoremap <silent> <leader>r :luafile %<CR>')
-cmd('au Filetype rust nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew rustc % && ./%:t:r && rm ./%:t:r<CR>')
-cmd('au Filetype java nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew javac % && java %:t:r && rm ./*.class<CR>')
-cmd('au FileType c nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew gcc -o thenga % && ./thenga && rm ./thenga<CR>')
-cmd('au Filetype python nnoremap <buffer> <silent> <leader>r :w<CR>:FloatermNew python %<CR>')
-
---> Floaterm Mappings
-map('n','<leader>t', ':FloatermNew --autoclose=2<Cr>', noresilent)
-map('n','<leader>p', ':FloatermNew --autoclose=2 python<Cr>', noresilent)
-map('n','<leader>l', ':FloatermNew --autoclose=2 lazygit<Cr>', noresilent)
--- map('n','<leader>l', ':LazyGit<Cr>', noresilent)
+map('n', '<leader>f', [[:lua require('telescope.builtin').find_files(require'telescope.themes'.get_dropdown({previewer=false, width=0.5 }))<CR>]], noice)
+map('i', 'jk', '<Esc>', noice)
+map('n', '<leader>a','ggVG',noice)
+map('n', '<leader>\'', 'ciw""<Esc>P', noice)
+map('n', '<C-c>', ':w<CR>:silent !live_server<CR>', noice)
+map('n', '<leader>n', ":lua require'lir.float'.toggle()<CR>", noice)
+-- map('t', '<Esc>', '<C-\\><C-n>', noice)
+cmd('au Filetype lua nnoremap <silent> <leader>r :luafile %<CR>:echo "Reloaded"<CR>')
 
 --> WINDOW Control
-map('n', '<C-h>','<C-w>h', noresilent)
-map('n', '<C-j>','<C-w>j', noresilent)
-map('n', '<C-k>','<C-w>k', noresilent)
-map('n', '<C-l>','<C-w>l', noresilent)
-map('n', '<M-h>', ':vertical resize +2<CR>', noresilent)
-map('n', '<M-j>', ':resize -2<CR>', noresilent)
-map('n', '<M-k>', ':resize +2<CR>', noresilent)
-map('n', '<M-l>', ':vertical resize -2<CR>', noresilent)
+map('n', '<C-h>','<C-w>h', noice)
+map('n', '<C-j>','<C-w>j', noice)
+map('n', '<C-k>','<C-w>k', noice)
+map('n', '<C-l>','<C-w>l', noice)
+map('n', '<M-h>', ':vertical resize +2<CR>', noice)
+map('n', '<M-j>', ':resize -2<CR>', noice)
+map('n', '<M-k>', ':resize +2<CR>', noice)
+map('n', '<M-l>', ':vertical resize -2<CR>', noice)
 
 --> OLD
-map('i', '<C-u>', '<Esc>viwUi', noresilent)
-map('n', '<C-u>', 'viwU', noresilent)
-map('n', '<TAB>', ':bnext<CR>', noresilent) 
-map('n', '<S-TAB>', ':bprevious<CR>', noresilent)
-map('n', '<C-s>', ':w<CR>', noresilent)
-map('n', '<C-q>', ':q<CR>', noresilent)
-map('c', 'W', 'w', noresilent)
-map('c', 'Q', 'q', noresilent)
-map('v', '<', '<gv', noresilent)
-map('v', '>', '>gv', noresilent)
+map('i', '<C-u>', '<Esc>viwUi', noice)
+map('n', '<C-u>', 'viwU', noice)
+map('n', '<TAB>', ':bnext<CR>', noice) 
+map('n', '<S-TAB>', ':bprevious<CR>', noice)
+map('n', '<C-s>', ':w<CR>', noice)
+map('n', '<C-q>', ':q<CR>', noice)
+map('c', 'W', 'w', noice)
+map('c', 'Q', 'q', noice)
+map('v', '<', '<gv', noice)
+map('v', '>', '>gv', noice)
 map('i', '<TAB>', 'pumvisible() ? "\\<C-n>" : "\\<TAB>"', {noremap=true, expr=true})
 map("i", "<C-k>", [[<cmd>lua return require'snippets'.expand_or_advance(1)<CR>]], {noremap=true})

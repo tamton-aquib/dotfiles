@@ -2,9 +2,9 @@
 
 require'staline'.setup{
 	defaults = {
-		cool_symbol = " ",
-		left_separator = " ",
-		right_separator = " ",
+		cool_symbol = "  ",
+		left_separator = "",
+		right_separator = "",
 -- 		left_separator = " ",
 -- 		right_separator = " ",
 	},
