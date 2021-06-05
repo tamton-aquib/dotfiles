@@ -4,10 +4,6 @@ set VISUAL "kate"
 set BROWSER "brave"
 set fish_greeting
 
-if status is-interactive
-  cd $HOME
-end
-
 # Start X at login
 if status --is-login
   if test -z "$DISPLAY" -a $XDG_VTNR = 1
@@ -19,7 +15,10 @@ end
 starship init fish | source
 source ~/.bash_aliases
 
-set fish_cursor_unknown block
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_visual block
 
 fish_add_path ~/CODES/scripts/dwmscripts/
 fish_add_path ~/CODES/scripts/
