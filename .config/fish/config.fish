@@ -12,8 +12,8 @@ if status --is-login
 end
 
 # Sources
-starship init fish | source
 source ~/.bash_aliases
+set -x JAVA_HOME /usr/lib/jvm/java-8-openjdk/
 
 set fish_cursor_default block
 set fish_cursor_insert line
@@ -24,6 +24,7 @@ fish_add_path ~/CODES/scripts/dwmscripts/
 fish_add_path ~/CODES/scripts/
 fish_add_path ~/.local/bin/
 fish_add_path ~/.cargo/bin/
+fish_add_path ~/Apps/flutter/bin/
 
 
 # Vi mode mapped Esc to jk
