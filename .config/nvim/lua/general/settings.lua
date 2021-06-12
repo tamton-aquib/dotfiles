@@ -6,7 +6,6 @@ cmd('syntax enable')
 cmd("filetype plugin indent on")
 cmd('set inccommand=split')
 
-vim.o.formatoptions = "cro"
 vim.go.t_Co = "256"
 vim.opt.more = false
 
@@ -33,7 +32,7 @@ vim.opt.incsearch = true
 vim.opt.showmode = false
 vim.opt.showtabline = 2
 vim.opt.laststatus = 2
-vim.opt.foldenable = true
+vim.opt.foldenable = false
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 25
@@ -59,5 +58,10 @@ vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.cursorline = true
 vim.opt.list = true
-vim.opt.listchars = 'tab:┊ '
+-- vim.opt.listchars = 'tab:┊ '
+vim.opt.listchars = 'tab: '
+
+vim.opt.filetype = "on"
+
+vim.opt.formatoptions = vim.opt.formatoptions - "cro"
 
