@@ -14,3 +14,4 @@ vicmd_symbol = "[<<-](green)"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
+
