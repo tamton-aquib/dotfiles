@@ -20,7 +20,7 @@ fi
 
 exec dwmbar &
 
-xset r rate 200 35
+xset r rate 190 60
 
 ~/CODES/scripts/dwmscripts/autostart &
 
