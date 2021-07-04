@@ -1,17 +1,16 @@
 add_newline = false
 
 
-format = "$directory$git_branch$git_status$package$memory_usage$character"
+format = "$directory$git_branch$git_status$memory_usage$character"
 
 [directory]
 truncation_length = 1
 home_symbol = "  "
 
 [character]
-success_symbol = "[->>](green)"
-error_symbol = "[->>](red)"
-vicmd_symbol = "[<<-](green)"
+success_symbol = "[»](green)"
+error_symbol = "[»](red)"
+vicmd_symbol = "[«](green)"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
-

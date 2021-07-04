@@ -5,7 +5,6 @@ colors:
     background: "#1E1E1E"
     # background: "#2E3440"
     foreground: "#D8DEE9"
-
   # Normal colors
   normal:
     black: "#3B4252"
@@ -28,28 +27,30 @@ colors:
     cyan: "#29B8DB"
     white: "#ECEFF4"
 
-background_opacity: 0.7
+background_opacity: 0.4
 
 font:
   # The normal (roman) font face to use.
   normal:
-    family: "FiraCode Nerd Font"
+    # family: "FiraCode Nerd Font"
+    family: Operator Mono
     # Style can be specified to pick a specific face.
-    style: Retina
+    style: Medium
 
   # The bold font face
   bold:
-    family: "FiraCode Nerd Font"
+    # family: "FiraCode Nerd Font"
+    family: Operator Mono
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    # family: JetBrainsMono Nerd Font
-    family: Fira Code iCursive S12
+    # family: FiraCodeiScript
+    family: Operator Mono
     # Style can be specified to pick a specific face.
-    style: Italic
-  size: 10.0
+    style: Book Italic
+  size: 11.0
 
   offset:
     x: 0
@@ -86,9 +87,8 @@ key_bindings:
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
-  # - { key: Add, mods: Control, action: IncreaseFontSize }
-  # - { key: Subtract, mods: Control, action: DecreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - { key: F11, command: { program: "/bin/sh", args: ["-c", "wmctrl -ir $(xdotool getwindowfocus) -b toggle,fullscreen" ] } }
 
 shell:
   program: /usr/bin/fish
