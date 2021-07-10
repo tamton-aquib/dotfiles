@@ -1,0 +1,193 @@
+[colors]
+background = #aa222526
+background-alt = #aa222526
+foreground = #986fec
+foreground-alt = #986fec
+secondary = "#456532"
+uo_linecolor = #7E57C0
+workspace_focused = #2f2f4a
+workspace_empty = #1ea69d
+workspace_dim = #555
+tile_grid = #614df7
+critical = #b3143e
+vol_mute = #6b6b6b
+red = #f7768e
+
+[bar/taj]
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+radius = 6.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
+
+padding-left = 2
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = FiraCode Nerd Font:style=Bold:pixelsize=10;1
+font-1 = FiraCode Nerd Font:style=Bold:fontformat=truetype:size=8:antialias=false;0
+font-2 = FiraCode Nerd Font:sytle=Bold:pixelsize=10;1
+
+modules-left = arch wlan
+modules-center = archuser
+modules-right = xbacklight pulseaudio memory cpu eth date powermenu
+
+tray-position = left
+tray-padding = 2
+;tray-background = #0063ff
+
+override-redirect = false
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/arch]
+type = custom/text
+content = " "
+content-font = 1
+content-foreground = ${colors.red}
+
+[module/archuser]
+type = custom/text
+content = taj@arch
+content-font = 1
+content-padding = 0
+content-foreground = ${colors.red}
+
+[module/round-left]
+type = custom/text
+content = %{T5}%{T-}
+content-foreground = ${colors.background}
+
+[module/round-right]
+type = custom/text
+content = %{T5}%{T-}
+content-foreground = ${colors.background}
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label>
+label = " %percentage%%"
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-spacing = 1
+format-prefix = ""
+format-prefix-foreground = ${colors.red}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 5.0
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.red}
+format-connected = <label-connected>
+label-connected = %essid%
+
+[module/eth]
+type = internal/network
+interface = enp3s0f1
+interval = 3.0
+
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = " %dth %a,"
+date-alt = " %Y-%m-%d"
+
+time = %I:%M %p
+; time-alt = %H:%M:%S
+time-alt = %dth %a
+
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+
+label = %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+
+ramp-volume-0 = %{F#C678DD}  
+ramp-volume-1 = %{F#C678DD}  
+ramp-volume-2 = %{F#C678DD}  
+
+label-muted =  muted
+label-muted-foreground = #666
+
+[module/powermenu]
+type = custom/menu
+
+expand-left = true
+
+format-spacing = 1
+
+label-open = "  "
+label-open-foreground = #e86671
+label-close = " "
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
