@@ -4,20 +4,27 @@
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
+static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const char statussep        = ';';      /* separator between status bars */
+static const int usealtbar          = 1;        /* 1 means use non-dwm status bar */
+static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
+static const char *altbarcmd        = "$HOME/bar.sh"; /* Alternate bar launch command */
+// static const char *altbarcmd        = "$HOME/.config/polybar/launch.sh"; /* Alternate bar launch command */
 static const char *fonts[]          = { "FiraCode Nerd Font:size=10" };
 static const char dmenufont[]       = "FiraCode Nerd Font:size=10";
-// static const char col_gray1[]       = "#f47a60";
-static const char col_gray1[]       = "#e27d60";
+static const char col_gray1[]       = "#7562c4";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#320d3e";
-static const char col_gray4[]       = "#f47a60";
+static const char col_gray4[]       = "#986fec";
 static const char col_cyan[]        = "#272822";
+
+// static const char col_gray1[]       = "#e27d60";
+// static const char col_gray2[]       = "#444444";
+// static const char col_gray3[]       = "#320d3e";
+// static const char col_gray4[]       = "#f47a60";
+// static const char col_cyan[]        = "#272822";
 static const char *colors[][3]      = {
-// static const char col_gray1[]       = "#222222";
-// static const char col_gray3[]       = "#bbbbbb";
-// static const char col_gray4[]       = "#eeeeee";
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
@@ -32,8 +39,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
 	{ "firefox",  NULL,       NULL,       0,            0,           -1 },
+	{ NULL,       "tk",       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -54,7 +62,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define ALTKEY Mod1Mask
-#define TERMINAL "alacritty"
+#define TERMINAL "kitty"
 
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -67,14 +75,14 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-p", "run: ","-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-l", "20", "-m", dmenumon, "-p", "🔎 ","-fn", dmenufont, "-nb", col_gray2, "-nf", col_gray4, "-sb", col_gray4, "-sf", col_cyan, NULL };
 // static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
 
 static Key keys[] = {
     /* MINE */
 	{ 0,                            XK_Print,   spawn,          SHCMD("flameshot gui")},
-	{ MODKEY,                       XK_c,       spawn,          SHCMD("colors")},
+	{ MODKEY,                       XK_c,       spawn,          SHCMD("~/CODES/scripts/colors")},
 	{ MODKEY|ShiftMask,             XK_t,       spawn,          SHCMD("~/CODES/scripts/translate")},
 	{ MODKEY,                       XK_v,       spawn,          SHCMD("vlc")},
 	{ MODKEY,                       XK_Up,      spawn,          SHCMD("volume_up")},
@@ -137,4 +145,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
