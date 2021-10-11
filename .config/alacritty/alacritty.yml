@@ -27,7 +27,7 @@ colors:
     cyan: "#29B8DB"
     white: "#ECEFF4"
 
-background_opacity: 0.4
+background_opacity: 0.5
 
 font:
   # The normal (roman) font face to use.
@@ -54,7 +54,7 @@ font:
 
   offset:
     x: 0
-    y: 1
+    y: 2
   glyph_offset:
     x: 0
     y: 0
@@ -65,8 +65,8 @@ window:
     lines: 33
 
   padding:
-    x: 5
-    y: 5
+    x: 7
+    y: 7
   # scrolling:
   #   # Maximum number of lines in the scrollback buffer.
   #   # Specifying '0' will disable scrolling.

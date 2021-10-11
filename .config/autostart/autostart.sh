@@ -1,4 +1,4 @@
 
-feh --bg-scale ~/Pictures/hongkongminimal.jpg
+feh --bg-scale ~/Pictures/wallpapers/raya_flipped.png
 
 picom -f

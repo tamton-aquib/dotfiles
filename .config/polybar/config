@@ -195,7 +195,8 @@ date =
 time = %{F#E06C75} %{F-} %I:%M %p
 
 date-alt = %{F#E06C75} %{F-} %a, %b %d
-time-alt = |  %{F#E06C75} %{F-} %I:%M:%S %p
+# time-alt = |  %{F#E06C75} %{F-} %I:%M:%S %p
+time-alt = 
 
 label = %date% %time%
 
