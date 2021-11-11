@@ -15,7 +15,7 @@ ___
 * [Fish](https://fishshell.com/). (Command line shell)
 * [Starship](https://starship.rs/). (Cross shell prompt)
 
-#### Some other small stuff worth mentioning: 
+#### other stuff worth mentioning: 
 * [alacritty](https://github.com/alacritty/alacritty). (Terminal emulator)
 * [Qtile](http://www.qtile.org/). (Tiling window manager)
 * [rofi](https://github.com/davatorium/rofi) (Dmenu replacement)
