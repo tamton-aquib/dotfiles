@@ -1,265 +1,186 @@
-" GENERAL SETTINGS {{{
+""""""""""""""""""""""""
+"         VIMRC        "
+""""""""""""""""""""""""
 
-" set leader key
-let g:mapleader = " "
-
-syntax enable                           " Enables syntax highlighing
-set hidden                              " Required to keep multiple buffers open multiple buffers
-set nowrap                              " Display long lines as just one line
-set encoding=utf-8                      " The encoding displayed
-set pumheight=10                        " Makes popup menu smaller
-set fileencoding=utf-8                  " The encoding written to file
-set ruler              			            " Show the cursor position all the time
-set cmdheight=1                         " More space for displaying messages
-set iskeyword+=-                      	" treat dash separated words as a word text object"
-set mouse=a                             " Enable your mouse
-set splitbelow                          " Horizontal splits will automatically be below
-set splitright                          " Vertical splits will automatically be to the right
-set t_Co=256                            " Support 256 colors
-set conceallevel=0                      " So that I can see `` in markdown files
-set tabstop=2                           " Insert 2 spaces for a tab
-set shiftwidth=2                        " Change the number of space characters inserted for indentation
-set autoindent                          " Good auto indent
-set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
-set expandtab                           " Converts tabs to spaces
-set smartindent                         " Makes indenting smart
-set laststatus=0                        " Always display the status line
-set number                              " Line numbers
-set cursorline                          " Enable highlighting of the current line
-set showtabline=2                       " Always show tabs
-set noshowmode                          " We don't need to see things like -- INSERT -- anymore
-set nobackup                            " This is recommended by coc
-set nowritebackup                       " This is recommended by coc
-set updatetime=300                      " Faster completion
-set timeoutlen=500                      " By default timeoutlen is 1000 ms
-set formatoptions-=cro                  " Stop newline continution of comments
-set clipboard=unnamedplus               " Copy paste between vim and everything else
-set relativenumber
-set nohlsearch
-set scrolloff=8
-set incsearch
-
-" You can't stop me
-cmap w!! w !sudo tee %
-
-" custom
-set foldmethod=syntax
-set foldlevel=99
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
-filetype indent on
-set signcolumn=no 
-
-let g:python_highlight_space_errors = 0
-let g:pep8_ignore="E501,W601"
-
-let s:comment_map = { 
-    \   "c": '\/\/',
-    \   "java": '\/\/',
-    \   "javascript": '\/\/',
-    \   "php": '\/\/',
-    \   "python": '#',
-    \   "sh": '#',
-    \   "vim": '"',
-    \ }
-
-function! ToggleComment()
-    if has_key(s:comment_map, &filetype)
-        let comment_leader = s:comment_map[&filetype]
-        if getline('.') =~ "^\\s*" . comment_leader . " " 
-            " Uncomment the line
-            execute "silent s/^\\(\\s*\\)" . comment_leader . " /\\1/"
-        else 
-            if getline('.') =~ "^\\s*" . comment_leader
-                " Uncomment the line
-                execute "silent s/^\\(\\s*\\)" . comment_leader . "/\\1/"
-            else
-                " Comment the line
-                execute "silent s/^\\(\\s*\\)/\\1" . comment_leader . " /"
-            end
-        end
-    else
-        echo "No comment leader found for filetype"
-    end
-endfunction
-
-vnoremap <C-_> :call ToggleComment()<CR>
-nnoremap <C-_> :call ToggleComment()<CR>
-
-" }}}
-
-"  PLUGINS {{{
-
-call plug#begin('~/.config/nvim/autoload/plugged')
-    " Floaterm
-    Plug 'voldikss/vim-floaterm'
-    " Fuzzy Finder
-    Plug 'junegunn/fzf.vim'
-    " html auto-close tags
-    Plug 'alvan/vim-closetag'
-    " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
-    " Auto pairs for '(' '[' '{'
-    Plug 'jiangmiao/auto-pairs'
-    " Sonokai colorscheme
-    Plug 'sainnhe/sonokai'
-call plug#end()
-" }}}
-
-" SONOKAI THEME {{{
-let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 1
+" {{{ GENERAL Settings
+set fdm=marker
 syntax on
-
-if (has("termguicolors"))
-    set termguicolors
-    hi LineNr ctermbg=NONE guibg=NONE
-endif
+set ts=4 sw=4 so=8 nu rnu
+set list
+set lcs+=eol:\ 
+set background=dark
+set showtabline=2 laststatus=2
+set scrolloff=8
+filetype indent on
+let g:mapleader = " "
+set wildmenu
 " }}}
 
-" KEY-MAPPINGS {{{
-
-" My custom mappings
-nnoremap <C-a> ggVG
-nnoremap <leader>f :Files<CR>
-autocmd Filetype vim nnoremap <silent> <buffer> <leader>r :so %<CR>
-nnoremap <leader>t :FloatermNew --autoclose=2<CR>
-nnoremap <leader>m :FloatermNew --autoclose=2 ytop<CR>
-nnoremap <leader>p :FloatermNew --autoclose=2 python<CR>
-cmap W w
-cmap Q q
-
-au FileType python set foldmethod=indent
-
-autocmd Filetype rust nnoremap <buffer> <leader>r :w<CR>:FloatermNew rustc % && ./%:t:r && rm ./%:t:r<CR>
-autocmd Filetype java nnoremap <buffer> <leader>r :w<CR>:FloatermNew javac % && java %:t:r && rm ./*.class<CR>
-autocmd FileType c nnoremap <buffer> <leader>r :w<CR>:FloatermNew gcc -o thenga % && ./thenga && rm ./thenga<CR>
-autocmd FileType javascript nnoremap <buffer> <leader>r :w<CR>:FloatermNew node %<CR>
-autocmd Filetype python nnoremap <buffer> <leader>r :w<CR>:FloatermNew python %<CR>
-
-" Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
-" Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-l>    :vertical resize -2<CR>
-nnoremap <M-h>    :vertical resize +2<CR>
-
-" Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
-
-" TAB in general mode will move to text buffer
+" {{{ KEYMAPS
+inoremap <nowait> jk <Esc>
+nnoremap <space>r <cmd>!gcc % && ./a.out<CR>
+nnoremap <Tab> :bnext<CR>
 nnoremap <TAB> :bnext<CR>
-" SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
-
-" Alternate way to save
-nnoremap <C-s> :w<CR>
-" Alternate way to quit
-nnoremap <C-Q> :wq!<CR>
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Better tabbing
-vnoremap < <gv
-vnoremap > >gv
-
-" Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 " }}}
 
-" FLOATERM CONFIG {{{
+" {{{ PALETTE
+let s:palette = {
+	\ 'black':      ['#06080a',   '237',  'DarkGrey'],
+	\ 'bg0':        ['#1a1b26',   '232',  'Black'],
+	\ 'bg1':        ['#232433',   '232',  'DarkGrey'],
+	\ 'bg2':        ['#2a2b3d',   '236',  'DarkGrey'],
+	\ 'bg3':        ['#32344a',   '237',  'DarkGrey'],
+	\ 'bg4':        ['#3b3d57',   '237',  'Grey'],
+	\ 'bg_red':     ['#ff7a93',   '203',  'Red'],
+	\ 'diff_red':   ['#803d49',   '52',   'DarkRed'],
+	\ 'bg_green':   ['#b9f27c',   '107',  'Green'],
+	\ 'diff_green': ['#618041',   '22',   'DarkGreen'],
+	\ 'bg_blue':    ['#7da6ff',   '110',  'Blue'],
+	\ 'diff_blue':  ['#3e5380',   '17',   'DarkBlue'],
+	\ 'fg':         ['#a9b1d6',   '250',  'White'],
+	\ 'red':        ['#F7768E',   '203',  'Red'],
+	\ 'orange':     ['#FF9E64',   '215',  'Orange'],
+	\ 'yellow':     ['#E0AF68',   '179',  'Yellow'],
+	\ 'green':      ['#9ECE6A',   '107',  'Green'],
+	\ 'blue':       ['#7AA2F7',   '110',  'Blue'],
+	\ 'purple':     ['#ad8ee6',   '176',  'Magenta'],
+	\ 'grey':       ['#444B6A',   '246',  'LightGrey'],
+	\ 'none':       ['NONE',      'NONE', 'NONE']
+\ }
 
-" let g:floaterm_autoinsert=1
-let g:floaterm_width=0.85
-let g:floaterm_height=0.85
-let g:floaterm_wintitle=0
-" let g:floaterm_autoclose=1
-
-let g:rehash256 = 1
-" hi FloatermBorder guibg=#444 guifg=#34568B
-hi FloatermBorder guibg=#444 guifg=#fff
-
-" let g:floaterm_borderchars="━┃━┃┏┓┛┗"
-" let g:floaterm_borderchars="─│─│┌┐┘└"
-
-let g:floaterm_borderchars="═║═║╔╗╝╚"
+function! s:HL(group, fg, bg, ...)
+	let hl_string = [ 'highlight', a:group, 'ctermfg=' . a:fg[1], 'ctermbg=' . a:bg[1] ]
+	if a:0 >= 1
+	  if a:1 ==# 'undercurl'
+		call add(hl_string, 'cterm=underline')
+	  else
+		call add(hl_string, 'cterm=' . a:1)
+	  endif
+	else
+	  call add(hl_string, 'cterm=NONE')
+	endif
+	execute join(hl_string, ' ')
+endfunction
 " }}}
 
-" FZF CONFIG {{{
+" {{{ Calling COLORS
+call s:HL('Fg', s:palette.fg, s:palette.none)
+call s:HL('Grey', s:palette.grey, s:palette.none)
+call s:HL('Red', s:palette.red, s:palette.none)
+call s:HL('Orange', s:palette.orange, s:palette.none)
+call s:HL('Yellow', s:palette.yellow, s:palette.none)
+call s:HL('Green', s:palette.green, s:palette.none)
+call s:HL('Blue', s:palette.blue, s:palette.none)
+call s:HL('Purple', s:palette.purple, s:palette.none)
 
 
-" This is the default extra key bindings let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+call s:HL('Normal', s:palette.fg, s:palette.bg0)
+call s:HL('Terminal', s:palette.fg, s:palette.bg0)
+call s:HL('EndOfBuffer', s:palette.bg0, s:palette.bg0)
+call s:HL('FoldColumn', s:palette.grey, s:palette.bg1)
+call s:HL('Folded', s:palette.grey, s:palette.bg1)
+call s:HL('SignColumn', s:palette.fg, s:palette.bg1)
+call s:HL('ToolbarLine', s:palette.fg, s:palette.bg2)
+call s:HL('DiffAdd', s:palette.none, s:palette.diff_green)
+call s:HL('DiffChange', s:palette.none, s:palette.diff_blue)
+call s:HL('DiffDelete', s:palette.none, s:palette.diff_red)
+call s:HL('DiffText', s:palette.none, s:palette.none, 'reverse')
+call s:HL('Directory', s:palette.green, s:palette.none)
+call s:HL('ErrorMsg', s:palette.red, s:palette.none, 'bold,underline')
+call s:HL('WarningMsg', s:palette.yellow, s:palette.none, 'bold')
+call s:HL('ModeMsg', s:palette.fg, s:palette.none, 'bold')
+call s:HL('MoreMsg', s:palette.blue, s:palette.none, 'bold')
+call s:HL('IncSearch', s:palette.bg0, s:palette.bg_red)
+call s:HL('Search', s:palette.bg0, s:palette.bg_green)
+call s:HL('MatchParen', s:palette.none, s:palette.bg4)
+call s:HL('NonText', s:palette.bg4, s:palette.none)
+call s:HL('Whitespace', s:palette.bg4, s:palette.none)
+call s:HL('SpecialKey', s:palette.bg4, s:palette.none)
+call s:HL('Pmenu', s:palette.fg, s:palette.bg2)
+call s:HL('PmenuSbar', s:palette.none, s:palette.bg2)
+call s:HL('PmenuThumb', s:palette.none, s:palette.grey)
+call s:HL('Question', s:palette.yellow, s:palette.none)
+call s:HL('SpellBad', s:palette.red, s:palette.none, 'undercurl', s:palette.red)
+call s:HL('SpellCap', s:palette.yellow, s:palette.none, 'undercurl', s:palette.yellow)
+call s:HL('SpellLocal', s:palette.blue, s:palette.none, 'undercurl', s:palette.blue)
+call s:HL('SpellRare', s:palette.purple, s:palette.none, 'undercurl', s:palette.purple)
+call s:HL('StatusLine', s:palette.fg, s:palette.bg3)
+call s:HL('StatusLineTerm', s:palette.fg, s:palette.bg3)
+call s:HL('StatusLineNC', s:palette.grey, s:palette.bg1)
+call s:HL('StatusLineTermNC', s:palette.grey, s:palette.bg1)
+call s:HL('TabLine', s:palette.fg, s:palette.bg4)
+call s:HL('TabLineFill', s:palette.grey, s:palette.bg1)
+call s:HL('TabLineSel', s:palette.bg0, s:palette.bg_red)
+call s:HL('VertSplit', s:palette.black, s:palette.none)
+call s:HL('Visual', s:palette.none, s:palette.bg3)
+call s:HL('VisualNOS', s:palette.none, s:palette.bg3, 'underline')
+call s:HL('QuickFixLine', s:palette.blue, s:palette.none, 'bold')
+call s:HL('Debug', s:palette.yellow, s:palette.none)
+call s:HL('debugPC', s:palette.bg0, s:palette.green)
+call s:HL('debugBreakpoint', s:palette.bg0, s:palette.red)
+call s:HL('ToolbarButton', s:palette.bg0, s:palette.bg_blue)
+call s:HL('PreProc', s:palette.red, s:palette.none)
+call s:HL('PreCondit', s:palette.red, s:palette.none)
+call s:HL('Include', s:palette.red, s:palette.none)
+call s:HL('Keyword', s:palette.red, s:palette.none)
+call s:HL('Define', s:palette.red, s:palette.none)
+call s:HL('Typedef', s:palette.red, s:palette.none)
+call s:HL('Exception', s:palette.red, s:palette.none)
+call s:HL('Conditional', s:palette.red, s:palette.none)
+call s:HL('Repeat', s:palette.red, s:palette.none)
+call s:HL('Statement', s:palette.red, s:palette.none)
+call s:HL('Macro', s:palette.purple, s:palette.none)
+call s:HL('Error', s:palette.red, s:palette.none)
+call s:HL('Label', s:palette.purple, s:palette.none)
+call s:HL('Special', s:palette.purple, s:palette.none)
+call s:HL('SpecialChar', s:palette.purple, s:palette.none)
+call s:HL('Boolean', s:palette.purple, s:palette.none)
+call s:HL('String', s:palette.yellow, s:palette.none)
+call s:HL('Character', s:palette.yellow, s:palette.none)
+call s:HL('Number', s:palette.purple, s:palette.none)
+call s:HL('Float', s:palette.purple, s:palette.none)
+call s:HL('Function', s:palette.green, s:palette.none)
+call s:HL('Operator', s:palette.red, s:palette.none)
+call s:HL('Title', s:palette.red, s:palette.none, 'bold')
+call s:HL('Tag', s:palette.orange, s:palette.none)
+call s:HL('Delimiter', s:palette.fg, s:palette.none)
+call s:HL('Comment', s:palette.grey, s:palette.none)
+call s:HL('SpecialComment', s:palette.grey, s:palette.none)
+call s:HL('Todo', s:palette.blue, s:palette.none)
+highlight! link cLabel Red
+highlight! link cppSTLnamespace BlueItalic
+highlight! link cppSTLtype BlueItalic
+highlight! link cppAccess Red
+highlight! link cppStructure Red
+highlight! link cppSTLios BlueItalic
+highlight! link cppSTLiterator BlueItalic
+highlight! link cppSTLexception Red
+highlight! link cppSTLVariable BlueItalic
+highlight! link shRange Fg
+highlight! link shOption Purple
+highlight! link shQuote Yellow
+highlight! link shVariable BlueItalic
+highlight! link shDerefSimple BlueItalic
+highlight! link shDerefVar BlueItalic
+highlight! link shDerefSpecial BlueItalic
+highlight! link shDerefOff BlueItalic
+highlight! link shVarAssign Red
+highlight! link shFunctionOne Green
+highlight! link shFunctionKey Red
+" }}}
 
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-map <leader>f :Files<CR>
-map <leader>b :Buffers<CR>
-
-let g:fzf_tags_command = 'ctags -R'
-" Border color
-let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
-
-" let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!**__pycache__**'"
-
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-"Get Files
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
-
-
-" Get text in files with Rg
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
-
-" Ripgrep advanced
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+" {{{ Comment Function
+function! ToggleComment()
+	if getline('.') =~ "^\\s*// "
+		execute 'norm ^xxx'
+	else
+		execute 'norm I// '
+	endif
 endfunction
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-
-" Git grep
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-
+vnoremap <leader>/ :call ToggleComment()<CR>
+nnoremap <leader>/ :call ToggleComment()<CR>
 " }}}
 
-au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+au! BufWritePost $MYVIMRC source %
