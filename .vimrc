@@ -183,4 +183,14 @@ vnoremap <leader>/ :call ToggleComment()<CR>
 nnoremap <leader>/ :call ToggleComment()<CR>
 " }}}
 
+" {{{ Statusline
+set stl+=\ %#Nice#\ %f
+set stl+=%=%l/%L\ :%c\ \ \ \ 
+set stl+=%#Nice#\ \ \ 
+
+hi! Statusline ctermbg=1 ctermfg=232
+hi! Nice ctermbg=none ctermfg=none
+hi! TablineSel ctermbg=none ctermfg=1
+" }}}
+
 au! BufWritePost $MYVIMRC source %
