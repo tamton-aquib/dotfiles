@@ -53,6 +53,15 @@ let s:palette = {
 
 function! s:HL(group, fg, bg, ...)
 	let hl_string = [ 'highlight', a:group, 'ctermfg=' . a:fg[1], 'ctermbg=' . a:bg[1] ]
+	if a:0 >= 1
+	  if a:1 ==# 'undercurl'
+		call add(hl_string, 'cterm=underline')
+	  else
+		call add(hl_string, 'cterm=' . a:1)
+	  endif
+	else
+	  call add(hl_string, 'cterm=NONE')
+	endif
 	execute join(hl_string, ' ')
 endfunction
 " }}}
