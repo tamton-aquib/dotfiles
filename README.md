@@ -15,6 +15,8 @@ ___
 * [Fish](https://fishshell.com/). (Command line shell)
 * [Starship](https://starship.rs/). (Cross shell prompt)
 
+> PS: neovim config is in a [separate repo](https://github.com/tamton-aquib/nvim)
+
 #### other stuff worth mentioning: 
 * [alacritty](https://github.com/alacritty/alacritty). (Terminal emulator)
 * [Qtile](http://www.qtile.org/). (Tiling window manager)

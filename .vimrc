@@ -1,30 +1,41 @@
-""""""""""""""""""""""""
-"         VIMRC        "
-""""""""""""""""""""""""
+"""""""""""""""""""""""""
+"         VIMRC         "
+"""""""""""""""""""""""""
+
 
 " {{{ GENERAL Settings
-set fdm=marker
-syntax on
 set ts=4 sw=4 so=8 nu rnu
 set list
-set lcs+=eol:\ 
-set lcs+=tab:\ \ \ 
+set lcs=tab:▏\ 
 set background=dark
 set showtabline=2 laststatus=2
 set scrolloff=8
-filetype indent on
-let g:mapleader = " "
 set wildmenu
 set noshowmode
+set nowrap
+set hidden
+set timeoutlen=200
+let g:mapleader = " "
+filetype indent on
+syntax on
+set nofoldenable
+set fdm=syntax
 " }}}
 
+
 " {{{ KEYMAPS
-inoremap <nowait> jk <Esc>
-nnoremap <space>r <cmd>!gcc % && ./a.out<CR>
-nnoremap <Tab> :bnext<CR>
-nnoremap <TAB> :bnext<CR>
-nnoremap <S-TAB> :bprevious<CR>
+inoremap <nowait>   jk <Esc>
+nnoremap <space>r   :w<CR><cmd>!gcc % && ./a.out<CR>
+nnoremap <Tab>      :bnext<CR>
+nnoremap <TAB>      :bnext<CR>
+nnoremap <S-TAB>    :bprevious<CR>
+inoremap (          ()<Esc>i
+inoremap {          {}<Esc>i
+nnoremap <leader>w  :bd<CR>
 " }}}
+
+
+
 
 " {{{ PALETTE
 let s:palette = {
@@ -125,6 +136,7 @@ highlight! link cppSTLiterator BlueItalic
 highlight! link cppSTLexception Red
 highlight! link cppSTLVariable BlueItalic
 hi! LineNr ctermfg=8
+hi! SpecialKey ctermfg=246
 " }}}
 
 " {{{ Comment Function
@@ -141,7 +153,7 @@ nnoremap <leader>/ :call ToggleComment()<CR>
 " }}}
 
 " {{{ Statusline
-set stl+=\ %#Nice#\ %f
+set stl=\ %#Nice#\ %f
 set stl+=%=%l/%L\ :%c\ \ \ \ 
 set stl+=%#Nice#\ 
 
@@ -150,4 +162,13 @@ hi! Nice ctermbg=none ctermfg=none
 hi! TablineSel ctermbg=none ctermfg=1
 " }}}
 
+" {{{ Tabline
+function! Nice()
+	let nice = repeat(' ', &columns/2-10) . "%#Statusline# %M %f %##"
+	return nice
+endfunction
+set tabline=%!Nice()
+" }}}
+
 au! BufWritePost $MYVIMRC source %
+" vim: fdm=marker
