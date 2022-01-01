@@ -27,46 +27,53 @@ colors:
     cyan: "#29B8DB"
     white: "#ECEFF4"
 
-background_opacity: 0.5
+background_opacity: 0.4
 
 font:
   # The normal (roman) font face to use.
   normal:
     # family: "FiraCode Nerd Font"
-    family: Operator Mono Medium
+    family: Operator Mono
+    style: Medium
+    # style: Book
+    # family: CaskaydiaCove NF
     # Style can be specified to pick a specific face.
-    style: Regular
+
+    # family: MonoLisa
+    # style: Medium Italic
 
   # The bold font face
   bold:
     # family: "FiraCode Nerd Font"
-    family: Operator Mono
+    # family: Operator Mono
+    family: MonoLisa
     # Style can be specified to pick a specific face.
-    style: Bold
+    style: BoldItalic
 
   # The italic font face
   italic:
     # family: FiraCodeiScript
-    family: Operator Mono Lig
+    # family: Operator Mono Lig
+    family: MonoLisa
     # Style can be specified to pick a specific face.
-    style: Book Italic
-  size: 12.0
+    style: Italic
+  size: 10.0
 
   offset:
     x: 0
-    y: 2
+    y: 1
   glyph_offset:
-    x: 0
+    x: 1 
     y: 0
 window:
 
   dimensions:
-    columns: 120
-    lines: 33
+    columns: 130
+    lines: 35
 
   padding:
-    x: 7
-    y: 7
+    x: 0
+    y: 4
   # scrolling:
   #   # Maximum number of lines in the scrollback buffer.
   #   # Specifying '0' will disable scrolling.
