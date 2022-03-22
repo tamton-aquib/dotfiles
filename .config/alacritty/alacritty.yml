@@ -1,103 +1,75 @@
 # Colors (One Darker)
 colors:
-  # Default colors
-  primary:
-    background: "#1E1E1E"
-    # background: "#2E3440"
-    foreground: "#D8DEE9"
-  # Normal colors
-  normal:
-    black: "#3B4252"
-    red: "#D54646"
-    green: "#23D18B"
-    yellow: "#D7BA7D"
-    blue: "#569CD6"
-    magenta: "#C586C0"
-    cyan: "#29B8DB"
-    white: "#abb2bf"
-
-  # Bright colors
-  bright:
-    black: "#3B4252"
-    red: "#D54646"
-    green: "#23D18B"
-    yellow: "#D7BA7D"
-    blue: "#569CD6"
-    magenta: "#C586C0"
-    cyan: "#29B8DB"
-    white: "#ECEFF4"
-
-background_opacity: 0.4
+    primary:
+        background: "#0d0d0d"
+        foreground: "#D8DEE9"
+    normal:
+        black: "#3B4252"
+        red: "#D54646"
+        green: "#23D18B"
+        yellow: "#D7BA7D"
+        blue: "#569CD6"
+        magenta: "#C586C0"
+        cyan: "#29B8DB"
+        white: "#abb2bf"
+    bright:
+        black: "#3B4252"
+        red: "#D54646"
+        green: "#23D18B"
+        yellow: "#D7BA7D"
+        blue: "#569CD6"
+        magenta: "#C586C0"
+        cyan: "#29B8DB"
+        white: "#ECEFF4"
 
 font:
-  # The normal (roman) font face to use.
-  normal:
-    # family: "FiraCode Nerd Font"
-    family: Operator Mono
-    style: Medium
-    # style: Book
-    # family: CaskaydiaCove NF
-    # Style can be specified to pick a specific face.
+    normal:
+        family: MonoLisa
+        style: RegularItalic
+    bold:
+        family: MonoLisa
+        style: BoldItalic
+    italic:
+        family: MonoLisa
+        style: Italic
 
-    # family: MonoLisa
-    # style: Medium Italic
+    size: 10.0
 
-  # The bold font face
-  bold:
-    # family: "FiraCode Nerd Font"
-    # family: Operator Mono
-    family: MonoLisa
-    # Style can be specified to pick a specific face.
-    style: BoldItalic
+    offset:
+        x: 0
+        y: 3
+    glyph_offset:
+        x: 0 
+        y: 0
 
-  # The italic font face
-  italic:
-    # family: FiraCodeiScript
-    # family: Operator Mono Lig
-    family: MonoLisa
-    # Style can be specified to pick a specific face.
-    style: Italic
-  size: 10.0
-
-  offset:
-    x: 0
-    y: 1
-  glyph_offset:
-    x: 1 
-    y: 0
 window:
 
-  dimensions:
-    columns: 130
-    lines: 35
+    dimensions:
+        columns: 110
+        lines: 30
 
-  padding:
-    x: 0
-    y: 4
-  # scrolling:
-  #   # Maximum number of lines in the scrollback buffer.
-  #   # Specifying '0' will disable scrolling.
-  history: 10000
-  #   # Number of lines the viewport will move for every line scrolled when
-  #   # scrollback is enabled (history > 0).
-  multiplier: 10
+    padding:
+        x: 0
+        y: 4
 
-  # # If `true`, bold text is drawn using the bright color variants.
-  # draw_bold_text_with_bright_colors: true
+    history: 10000
+    multiplier: 10
+    opacity: 0.8
 
-  # selection:
-  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
-  save_to_clipboard: true
-  live_config_reload: true
+    draw_bold_text_with_bright_colors: true
+    semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+    save_to_clipboard: true
+    live_config_reload: true
+
 key_bindings:
-  - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Control|Shift, action: Copy }
-  - { key: Key0, mods: Control, action: ResetFontSize }
-  - { key: Equals, mods: Control, action: IncreaseFontSize }
-  - { key: Minus, mods: Control, action: DecreaseFontSize }
-  - { key: F11, command: { program: "/bin/sh", args: ["-c", "wmctrl -ir $(xdotool getwindowfocus) -b toggle,fullscreen" ] } }
+    - { key: V, mods: Control|Shift, action: Paste }
+    - { key: C, mods: Control|Shift, action: Copy }
+    - { key: Key0, mods: Control, action: ResetFontSize }
+    - { key: Equals, mods: Control, action: IncreaseFontSize }
+    - { key: Minus, mods: Control, action: DecreaseFontSize }
+      # - { key: F11, command: { program: "/bin/sh", args: ["-c", "wmctrl -ir $(xdotool getwindowfocus) -b toggle,fullscreen" ] } }
 
 shell:
-  program: /usr/bin/fish
-  args:
-    - --login
+    program: /usr/bin/fish
+    args:
+        - --login
