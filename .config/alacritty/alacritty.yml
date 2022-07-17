@@ -1,7 +1,7 @@
 # Colors (One Darker)
 colors:
     primary:
-        background: "#0d0d0d"
+        background: "#11121D"
         foreground: "#D8DEE9"
     normal:
         black: "#3B4252"
@@ -22,16 +22,17 @@ colors:
         cyan: "#29B8DB"
         white: "#ECEFF4"
 
+background_opacity: 0.6
 font:
     normal:
-        family: MonoLisa
-        style: RegularItalic
+      family: MonoLisa Nerd Font
+      style: Medium
     bold:
-        family: MonoLisa
-        style: BoldItalic
+      family: MonoLisa Nerd Font
+      style: Bold
     italic:
-        family: MonoLisa
-        style: Italic
+      family: MonoLisa Nerd Font
+      style: RegularItalic
 
     size: 10.0
 
@@ -54,7 +55,7 @@ window:
 
     history: 10000
     multiplier: 10
-    opacity: 0.8
+    # opacity: 0.8
 
     draw_bold_text_with_bright_colors: true
     semantic_escape_chars: ',│`|:"'' ()[]{}<>'
