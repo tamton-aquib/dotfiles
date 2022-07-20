@@ -1,12 +1,14 @@
 # Colors (One Darker)
 colors:
     primary:
+      # background: "#0d0d0d"
         background: "#11121D"
         foreground: "#D8DEE9"
     normal:
         black: "#3B4252"
         red: "#D54646"
-        green: "#23D18B"
+          # green: "#23D18B"
+        green: "#9ece6a"
         yellow: "#D7BA7D"
         blue: "#569CD6"
         magenta: "#C586C0"
@@ -15,32 +17,39 @@ colors:
     bright:
         black: "#3B4252"
         red: "#D54646"
-        green: "#23D18B"
+        # green: "#23D18B"
+        green: "#9ece6a"
         yellow: "#D7BA7D"
         blue: "#569CD6"
         magenta: "#C586C0"
         cyan: "#29B8DB"
         white: "#ECEFF4"
 
-background_opacity: 0.6
+background_opacity: 0.7
+
 font:
     normal:
-      family: MonoLisa Nerd Font
-      style: Medium
+      family: JetBrainsMonoNerdFontComplete Nerd Font Mono
+      # family: MonoLisa Nerd Font
+      # style: Medium
+      style: Regular
     bold:
-      family: MonoLisa Nerd Font
+      # family: MonoLisa Nerd Font
+      family: JetBrainsMonoNerdFontComplete Nerd Font Mono
       style: Bold
     italic:
-      family: MonoLisa Nerd Font
-      style: RegularItalic
+      # family: MonoLisa Nerd Font
+      family: JetBrainsMonoNerdFontComplete Nerd Font Mono
+      # style: RegularItalic
+      style: Italic
 
-    size: 10.0
+    size: 11.0
 
     offset:
         x: 0
-        y: 3
+        y: 0
     glyph_offset:
-        x: 0 
+        x: 0
         y: 0
 
 window:
@@ -51,11 +60,11 @@ window:
 
     padding:
         x: 0
-        y: 4
+        y: 1
 
     history: 10000
     multiplier: 10
-    # opacity: 0.8
+    # opacity: 0.4
 
     draw_bold_text_with_bright_colors: true
     semantic_escape_chars: ',│`|:"'' ()[]{}<>'

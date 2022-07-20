@@ -1,4 +1,4 @@
 
-feh --bg-scale ~/Pictures/wallpapers/raya_flipped.png
+feh --bg-scale /home/taj/Pictures/deer.jpg
 
 picom -f

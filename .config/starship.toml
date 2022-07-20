@@ -1,6 +1,4 @@
 add_newline = false
-
-
 format = "$directory$git_branch$git_status$memory_usage$character"
 
 [directory]
