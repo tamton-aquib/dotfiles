@@ -16,7 +16,6 @@
 
 (straight-use-package 'use-package)
 
-
 (defmacro append-to-list (target suffix)
   "Append SUFFIX to TARGET in place."
   `(setq ,target (append ,target ,suffix)))
@@ -36,3 +35,15 @@
 (load-file (expand-file-name "~/.emacs.d/packages.el"))
 (load-file (expand-file-name "~/.emacs.d/lsp.el"))
 (load-file (expand-file-name "~/.emacs.d/settings.el"))
+
+(straight-use-package
+ '(gruvy :type git :host github :repo "aslpavel/palette-emacs-theme"))
+; (straight-use-package :type git :host github
+          ; :repo ,(format "" straight-repository-user)
+		  ; :repo "aslpavel/palette-emacs-theme")
+
+(add-to-list 'custom-theme-load-path (concat user-emacs-directory "straight/build/gruvy/"))
+
+(straight-use-package
+ '(ef-themes :type git :host github :repo "protesilaos/ef-themes"))
+; (straight-use-package :type git :host github :repo "protesilaos/ef-themes")

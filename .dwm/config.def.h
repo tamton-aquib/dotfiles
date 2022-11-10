@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#define SESSION_FILE "/tmp/dwm-session"
+
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
@@ -29,7 +31,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "  ", "", "嗢", "", " " };
+static const char *tags[] = { " ", " ", "嗢 ", " ", " " };
+// static const char *tags[] = { "1", "2", "3", "4", "5" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -40,7 +43,10 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
 	{ "firefox",  NULL,       NULL,       0,            0,           -1 },
 	{ NULL,       "tk",       NULL,       0,            1,           -1 },
+	{ NULL,       NULL,       "wifi_menu",       0,            1,           -1 },
 	{ NULL,       "noice",    NULL,       0,            1,           -1 },
+	{ NULL,       "colors",    NULL,       0,            1,           -1 },
+	{ NULL,       NULL,    "noice",       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -61,7 +67,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define ALTKEY Mod1Mask
-#define TERMINAL "kitty"
+#define TERMINAL "wezterm"
 
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -78,15 +84,19 @@ static const char *dmenucmd[] = { "dmenu_run", "-l", "20", "-m", dmenumon, "-p",
 // static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
 
+#include "selfrestart.c"
+
 static Key keys[] = {
     /* MINE */
+    { MODKEY|ShiftMask,             XK_f,      fullscreen,      {0} },
+	{ ControlMask,                  XK_space,   spawn,          SHCMD("dunstctl close")},
 	{ 0,                            XK_Print,   spawn,          SHCMD("flameshot gui")},
 	{ MODKEY,                       XK_c,       spawn,          SHCMD("~/CODES/scripts/colors")},
-	{ MODKEY,                       XK_e,       spawn,          SHCMD("emacs")},
+	{ MODKEY,                       XK_e,       spawn,          SHCMD("emacsclient -c -a 'emacs'")},
 	{ MODKEY|ShiftMask,             XK_t,       spawn,          SHCMD("~/CODES/scripts/translate")},
 	{ MODKEY,                       XK_v,       spawn,          SHCMD("vlc")},
-	{ MODKEY,                       XK_Up,      spawn,          SHCMD("volume_up")},
-	{ MODKEY,                       XK_Down,    spawn,          SHCMD("volume_down")},
+	{ MODKEY,                       XK_Up,      spawn,          SHCMD("~/CODES/scripts/volume up")},
+	{ MODKEY,                       XK_Down,    spawn,          SHCMD("~/CODES/scripts/volume down")},
 	{ MODKEY|ShiftMask,             XK_d,       spawn,          SHCMD("draw_terminal")},
 
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
@@ -109,6 +119,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -126,7 +137,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+    { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 };
 
 /* button definitions */

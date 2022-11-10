@@ -25,42 +25,48 @@ colors:
         cyan: "#29B8DB"
         white: "#ECEFF4"
 
-background_opacity: 0.7
+background_opacity: 0.75
 
 font:
     normal:
-      family: JetBrainsMonoNerdFontComplete Nerd Font Mono
-      # family: MonoLisa Nerd Font
+      # family: JetBrainsMonoNerdFontComplete Nerd Font Mono
+      family: MonoLisa Nerd Font
+      # family: CaskaydiaCove Nerd Font
+      style: RegularItalic
       # style: Medium
-      style: Regular
+      # style: Regular
     bold:
-      # family: MonoLisa Nerd Font
-      family: JetBrainsMonoNerdFontComplete Nerd Font Mono
+      family: MonoLisa Nerd Font
+      # family: CaskaydiaCove Nerd Font
+      # --> == === != !==
+      # family: JetBrainsMonoNerdFontComplete Nerd Font Mono
       style: Bold
     italic:
-      # family: MonoLisa Nerd Font
-      family: JetBrainsMonoNerdFontComplete Nerd Font Mono
-      # style: RegularItalic
+      family: MonoLisa Nerd Font
+      # family: CaskaydiaCove Nerd Font
+      # family: JetBrainsMonoNerdFontComplete Nerd Font Mono
       style: Italic
 
-    size: 11.0
+    size: 10.0
 
     offset:
         x: 0
-        y: 0
+        y: 3
     glyph_offset:
         x: 0
         y: 0
 
+    builtin_box_drawing: true
+
 window:
 
     dimensions:
-        columns: 110
-        lines: 30
+        columns: 112
+        lines: 28
 
     padding:
         x: 0
-        y: 1
+        y: 0
 
     history: 10000
     multiplier: 10

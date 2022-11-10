@@ -16,7 +16,8 @@
   "w" 'kill-current-buffer)
 
 (general-evil-setup t)
-(general-nmap "TAB" 'evil-switch-to-windows-last-buffer)
+; (general-nmap "TAB" 'evil-switch-to-windows-last-buffer)
+(general-nmap "TAB" 'previous-buffer)
 (general-imap "jk" 'evil-normal-state)
 
 (global-set-key (kbd "C-k") 'windmove-up)

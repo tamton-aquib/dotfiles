@@ -12,10 +12,10 @@
 
 (use-package which-key
   :straight t
+  :custom
+  (setq which-key-idle-delay 0.3)
   :init
-  (which-key-mode)
-  :config
-  (setq which-key-idle-delay 0.5))
+  (which-key-mode))
 
 (use-package projectile
   :straight t
