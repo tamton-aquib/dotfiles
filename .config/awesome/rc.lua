@@ -61,19 +61,19 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    awful.layout.suit.floating,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
+    -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -151,6 +151,7 @@ local tasklist_buttons = gears.table.join(
 
 local function set_wallpaper(s)
     -- Wallpaper
+    beautiful.wallpaper = "/home/taj/Pictures/Wallpapers/astro_car.jpg"
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
         -- If wallpaper is a function, call it with the screen
@@ -229,26 +230,33 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({}, "Print",      function() awful.spawn.with_shell("flameshot gui") end,
+    -- awful.key({}, "Print",      function() awful.spawn.with_shell("flameshot gui") end,
+    awful.key({modkey}, "b",      function()
+        local s = awful.screen.focused()
+        s.mywibox.visible = not s.mywibox.visible
+    end, {description="Toggle wibar", group="awesome"}),
+    awful.key({modkey}, "c",      function() awful.spawn("colors") end,
+              {description="Display color at mouse.", group="awesome"}),
+    awful.key({}, "Print",      function() awful.spawn("flameshot gui") end,
               {description="Take a screenshot", group="awesome"}),
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+    awful.key({ modkey }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({ modkey }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    awful.key({ modkey }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ "Mod1",           }, "Tab", awful.tag.history.restore,
+    awful.key({ "Mod1" }, "Tab", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-        end,
+    awful.key({ modkey }, "e",  function() awful.spawn("emacsclient -c -a ''") end,
+              {description = "view next", group = "tag"}),
+
+    awful.key({ modkey }, "j",
+        function () awful.client.focus.byidx( 1) end,
         {description = "focus next by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "k",
-        function ()
-            awful.client.focus.byidx(-1)
+    awful.key({ modkey }, "k",
+        function () awful.client.focus.byidx(-1)
         end,
         {description = "focus previous by index", group = "client"}
     ),
@@ -316,8 +324,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    awful.key({ modkey }, "p", function() menubar.show() end, {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -480,6 +487,10 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
     },
+    { rule_any = {
+        -- instance = { "noice" },
+        class = { "colors" },
+    }, properties = { floating=true } }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
@@ -550,3 +561,9 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+beautiful.useless_gap = 6
+
+if awesome.startup then
+    awful.spawn.with_shell("picom -f &")
+end

@@ -1,4 +1,4 @@
-set TERM "xterm-kitty"             
+# set TERM "xterm-kitty"             
 # set TERM "screen-256color"             
 set EDITOR "nvim"
 set VISUAL "kate"
@@ -14,10 +14,12 @@ end
 
 # Sources
 source ~/.bash_aliases
-set -x JAVA_HOME /usr/lib/jvm/jdk-11.0.11+9
-set -x ANDROID_SDK_ROOT /home/taj/Apps/android-sdk/
-fish_add_path /home/taj/Apps/android-sdk/cmdline-tools/tools/bin/
+set -x JAVA_HOME /usr/lib/jvm/java-8-openjdk/
+set -x ANDROID_SDK_ROOT /opt/android-sdk/
+# fish_add_path /home/taj/Apps/android-sdk/cmdline-tools/tools/bin/
+
 starship init fish | source
+zoxide init fish | source
 
 set fish_cursor_default block
 set fish_cursor_insert line
@@ -28,7 +30,7 @@ fish_add_path ~/CODES/scripts/dwmscripts/
 fish_add_path ~/CODES/scripts/
 fish_add_path ~/.local/bin/
 fish_add_path ~/.cargo/bin/
-fish_add_path ~/Apps/flutter/bin/
+# fish_add_path ~/Apps/flutter/bin/
 
 # Vi mode mapped Esc to jk
 function fish_user_key_bindings
