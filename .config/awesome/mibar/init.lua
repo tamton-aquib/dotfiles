@@ -18,13 +18,6 @@ local myawesomemenu = {
     { "quit", function() awesome.quit() end },
 }
 
--- local mytextclock = wibox.widget.textclock("%I:%M ")
-local mytextclock = wibox.widget {
-    format="%a %d-%b, %I:%M %p",
-    -- font='JetBrains Mono Nerd Font',
-    widget=wibox.widget.textclock,
-}
-
 local mymainmenu = awful.menu({ items = {
     { "awesome", myawesomemenu, beautiful.awesome_icon },
     { "open terminal", k.terminal }
@@ -52,7 +45,6 @@ local space = function()
     return wibox.container.background(wibox.container.margin(wibox.widget {
         widget = wibox.widget.textbox,
         text = '',
-        opacity = 0.3
     }, 5, 20, 0, 0), nil)
 end
 
@@ -97,10 +89,6 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = taglist_buttons
     }
 
-    s.nice = wibox.widget {
-        widget = wibox.widget.taglist
-    }
-
     -- Create the wibox
     s.mywibox = awful.wibar({ position="top", screen=s, height=30, opacity=0.8, bg=k.bg, fg="#FFFFFF" })
 
@@ -113,7 +101,7 @@ awful.screen.connect_for_each_screen(function(s)
             space(),
             mylauncher,
             space(),
-            mytextclock,
+            datetime(),
             space(),
             s.mypromptbox,
         },
@@ -124,37 +112,9 @@ awful.screen.connect_for_each_screen(function(s)
         { --> Right
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
-            datetime(),
-            space(),
             wifi(),
             space(),
             s.mylayoutbox,
         },
     }
 end)
--- }}}
-
-    -- Create a tasklist widget
-    -- s.mytasklist = awful.widget.tasklist {
-        -- screen  = s,
-        -- filter  = awful.widget.tasklist.filter.currenttags,
-        -- buttons = tasklist_buttons
-    -- }
-
--- local tasklist_buttons = gears.table.join(
-    -- awful.button({ }, 1, function (c)
-        -- if c == client.focus then
-            -- c.minimized = true
-        -- else
-            -- c:emit_signal(
-                -- "request::activate",
-                -- "tasklist",
-                -- {raise = true}
-            -- )
-        -- end
-    -- end),
-    -- awful.button({}, 3, function() awful.menu.client_list({ theme={ width=250 } }) end),
-    -- awful.button({}, 4, function() awful.client.focus.byidx(1) end),
-    -- awful.button({}, 5, function() awful.client.focus.byidx(-1) end)
--- )
-

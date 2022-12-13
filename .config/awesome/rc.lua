@@ -93,6 +93,10 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 local globalkeys = gears.table.join(
+    awful.key({modkey}, "Up", function() awful.spawn("amixer set Master 10%+") end,
+        {description="Increase volume.", group="awesome"}),
+    awful.key({modkey}, "Down", function() awful.spawn("amixer set Master 10%-") end,
+        {description="Increase volume.", group="awesome"}),
     awful.key({modkey}, "b", function()
         local s = awful.screen.focused()
         s.mywibox.visible = not s.mywibox.visible
@@ -113,13 +117,10 @@ local globalkeys = gears.table.join(
         {description = "view next", group = "tag"}),
     awful.key({ modkey }, "j",
         function () awful.client.focus.byidx( 1) end,
-        {description = "focus next by index", group = "client"}
-    ),
+        {description = "focus next by index", group = "client"}),
     awful.key({ modkey }, "k",
-        function () awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
-    ),
+        function () awful.client.focus.byidx(-1) end,
+        {description = "focus previous by index", group = "client"}),
     -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               -- {description = "show main menu", group = "awesome"}),
 
@@ -333,6 +334,7 @@ awful.rules.rules = {
     { rule_any = {
         -- instance = { "noice" },
         class = { "colors" },
+        name = { "noice" },
     }, properties = { floating=true } }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.

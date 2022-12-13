@@ -2,21 +2,19 @@ local watch = require("awful.widget.watch")
 local wibox = require("wibox")
 
 local net_speed_widget = {}
+local k=require("constants")
 
 local function worker(user_args)
 
-    local args = user_args or {}
-    -- local interface = args.interface or '*'
+    user_args = user_args or {}
     local interface = "wlp2s0"
-    -- local timeout = args.timeout or 1
-    local width = args.width or 100
 
     net_speed_widget = wibox.widget {
         layout = wibox.layout.fixed.horizontal,
         {
             id = 'wifi',
-            forced_width = width,
             align = 'right',
+            font=k.font,
             text='',
             widget = wibox.widget.textbox
         },
