@@ -6,7 +6,8 @@ local beautiful = require("beautiful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 local k = require("constants")
-local wifi = require("wifi")
+local wifi = require("mibar.wifi")
+local datetime = require("mibar.datetime")
 local modkey = k.modkey
 
 local myawesomemenu = {
@@ -46,6 +47,14 @@ local taglist_buttons = gears.table.join(
     awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
     awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
+
+local space = function()
+    return wibox.container.background(wibox.container.margin(wibox.widget {
+        widget = wibox.widget.textbox,
+        text = '',
+        opacity = 0.3
+    }, 5, 20, 0, 0), nil)
+end
 
 local function set_wallpaper(s)
     beautiful.wallpaper = "/home/taj/Pictures/Wallpapers/astro_car.jpg"
@@ -96,13 +105,6 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position="top", screen=s, height=30, opacity=0.8, bg=k.bg, fg="#FFFFFF" })
 
     -- Add widgets to the wibox
-    local space = function()
-        return wibox.container.background(wibox.container.margin(wibox.widget {
-            widget = wibox.widget.textbox,
-            text = '',
-            opacity = 0.3
-        }, 5, 20, 0, 0), nil)
-    end
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         expand = 'none',
@@ -122,6 +124,8 @@ awful.screen.connect_for_each_screen(function(s)
         { --> Right
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
+            datetime(),
+            space(),
             wifi(),
             space(),
             s.mylayoutbox,
