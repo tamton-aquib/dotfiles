@@ -4,7 +4,7 @@ local awful = require("awful")
 
 local wifi_widget = {}
 local old_cursor, old_wibox
--- local k=require("constants")
+local k=require("constants")
 
 local function worker(user_args)
 
@@ -14,18 +14,28 @@ local function worker(user_args)
     wifi_widget = wibox.widget {
         layout = wibox.layout.fixed.horizontal,
         {
-            id = 'wifi',
-            align = 'right',
-            text=' 睊 ',
-            widget=wibox.widget.textbox
+            widget=wibox.container.background,
+            space=3,
+            fg=k.red,
+            {
+                widget=wibox.widget.textbox,
+                id='wifi_icon'
+            }
         },
+        {
+            id='wifi',
+            text='',
+            widget=wibox.widget.textbox,
+        },
+
         set_wifi_text = function(self, wifi_name)
             self:get_children_by_id('wifi')[1]:set_text(wifi_name)
+            self:get_children_by_id('wifi_icon')[1]:set_text(wifi_name ~= '' and " " or "睊")
         end,
     }
 
     local update_widget = function(widget, stdout)
-        widget:set_wifi_text(stdout and "  "..stdout or " 睊 ")
+        widget:set_wifi_text(stdout and stdout or '')
     end
 
     watch(

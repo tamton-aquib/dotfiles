@@ -28,19 +28,14 @@ for _, item in ipairs(menu_items) do
             margins=8,
             {
                 layout = wibox.layout.fixed.horizontal,
-                text = item.name,
-                widget = wibox.widget.textbox,
+                widget=wibox.widget.textbox(item.name),
                 spacing = 10,
                 {
-                    font=k.font,
-                    text=item.icon_name,
-                    widget=wibox.widget.textbox,
+                    widget=wibox.widget.textbox(item.icon_name),
                     fg=k.red
                 },
                 {
-                    font=k.font,
-                    text=item.name,
-                    widget=wibox.widget.textbox
+                    widget=wibox.widget.textbox(item.name)
                 },
             }
         },
@@ -64,10 +59,11 @@ popup:setup(rows)
 
 local bookmark_widget = wibox.widget {
     {
-        text = " ",
         resize = true,
-        widget = wibox.widget.textbox,
         font=k.font,
+        -- text = " ",
+        -- widget = wibox.widget.textbox,
+        widget=wibox.widget.textbox(" ")
     },
     margins = 4,
     widget = wibox.container.margin

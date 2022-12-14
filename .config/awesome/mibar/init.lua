@@ -12,35 +12,32 @@ local power = require("mibar.power")
 
 local modkey = k.modkey
 
-beautiful.awesome_icon = "/home/taj/Pictures/arch.png"
-beautiful.font = k.font
 -- local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
-local mylauncher = wibox.widget {
+-- local mylauncher = wibox.widget {
     -- button = awful.button(k),
-    text = '  ',
-    -- fg = "#ff0000",
-    widget = wibox.widget.textbox,
-}
-mylauncher:buttons(awful.button({ }, 1, function(t)
-        -- t:view_only()
-    -- require("naughty").notify({text="Called the button!"})
-    local p = awful.popup({
-        -- ontop = true,
-        visible = false,
-        border_color = "#ff0000",
-        shape = gears.shape.rounded_bar,
-        widget = wibox.widget {
-            text="Noice",
-            widget = wibox.widget.textbox
-        }
-    })
+    -- text = '  ',
+    -- widget = wibox.widget.textbox,
+    -- widget=wibox.widget.textbox("  ")
+-- }
+-- mylauncher:buttons(awful.button({ }, 1, function(t)
+        -- -- t:view_only()
+    -- -- require("naughty").notify({text="Called the button!"})
+    -- local p = awful.popup({
+        -- -- ontop = true,
+        -- visible = false,
+        -- shape = gears.shape.rounded_bar,
+        -- widget = wibox.widget {
+            -- text="Noice",
+            -- widget = wibox.widget.textbox
+        -- }
+    -- })
 
-    if p.visible then
-        p.visible = not p.visible
-    else
-        p:move_next_to(mouse.current_widget_geometry)
-    end
-end))
+    -- if p.visible then
+        -- p.visible = not p.visible
+    -- else
+        -- p:move_next_to(mouse.current_widget_geometry)
+    -- end
+-- end))
 
 local taglist_buttons = gears.table.join(
     awful.button({ }, 1, function(t) t:view_only() end),
@@ -57,8 +54,9 @@ local taglist_buttons = gears.table.join(
 
 local space = function()
     return wibox.container.background(wibox.container.margin(wibox.widget {
-        widget = wibox.widget.textbox,
-        text = '',
+        -- widget = wibox.widget.textbox,
+        -- text = '',
+        wibox.widget.textbox('')
     }, 5, 20, 0, 0), nil)
 end
 
@@ -120,9 +118,9 @@ awful.screen.connect_for_each_screen(function(s)
                 fg = k.red,
                 widget = wibox.widget.background
             },
-            space(), space(),
+            space(),
             {
-                wibox.widget.textbox("  "),
+                wibox.widget.textbox(" "),
                 fg = k.red,
                 widget = wibox.widget.background
             },
