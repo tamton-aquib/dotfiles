@@ -7,6 +7,7 @@ local beautiful = require("beautiful")
 local k = require("constants")
 
 local wifi = require("mibar.wifi")
+local cpu = require("mibar.cpu")
 local datetime = require("mibar.datetime")
 local power = require("mibar.power")
 
@@ -53,11 +54,11 @@ local taglist_buttons = gears.table.join(
 )
 
 local space = function()
-    return wibox.container.background(wibox.container.margin(wibox.widget {
+    return wibox.container.margin(wibox.widget {
         -- widget = wibox.widget.textbox,
         -- text = '',
         wibox.widget.textbox('')
-    }, 5, 20, 0, 0), nil)
+    }, 5, 20, 0, 0)
 end
 
 local function set_wallpaper(s)
@@ -85,14 +86,14 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox(s)
+    -- s.mylayoutbox = awful.widget.layoutbox(s)
 
-    s.mylayoutbox:buttons(gears.table.join(
-        awful.button({ }, 1, function () awful.layout.inc( 1) end),
-        awful.button({ }, 3, function () awful.layout.inc(-1) end),
-        awful.button({ }, 4, function () awful.layout.inc( 1) end),
-        awful.button({ }, 5, function () awful.layout.inc(-1) end)
-    ))
+    -- s.mylayoutbox:buttons(gears.table.join(
+        -- awful.button({ }, 1, function () awful.layout.inc( 1) end),
+        -- awful.button({ }, 3, function () awful.layout.inc(-1) end),
+        -- awful.button({ }, 4, function () awful.layout.inc( 1) end),
+        -- awful.button({ }, 5, function () awful.layout.inc(-1) end)
+    -- ))
 
     -- Create a taglist widget
     -- beautiful.taglist_font = k.font
@@ -103,7 +104,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position="top", screen=s, height=25, opacity=0.8, bg=k.bg, fg="#FFFFFF", border_width=5 })
+    s.mywibox = awful.wibar({ position="top", screen=s, height=28, opacity=0.8, bg=k.bg, fg="#FFFFFF", border_width=5 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -135,9 +136,11 @@ awful.screen.connect_for_each_screen(function(s)
         { --> Right
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
+            cpu(),
+            space(),
             wifi(),
             space(),
-            s.mylayoutbox,
+            -- s.mylayoutbox,
         },
     }
 end)
