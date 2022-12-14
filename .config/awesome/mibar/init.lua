@@ -3,30 +3,44 @@ local wibox = require("wibox")
 local gears = require("gears")
 local awful = require("awful")
 local beautiful = require("beautiful")
-local hotkeys_popup = require("awful.hotkeys_popup")
 
 local k = require("constants")
+
 local wifi = require("mibar.wifi")
 local datetime = require("mibar.datetime")
+local power = require("mibar.power")
+
 local modkey = k.modkey
 
-local myawesomemenu = {
-    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-    { "manual", k.terminal .. " -e man awesome" },
-    { "edit config", k.editor_cmd .. " " .. awesome.conffile },
-    { "restart", awesome.restart },
-    { "quit", function() awesome.quit() end },
-}
-
-local mymainmenu = awful.menu({ items = {
-    { "awesome", myawesomemenu, beautiful.awesome_icon },
-    { "open terminal", k.terminal }
-}})
-
-
 beautiful.awesome_icon = "/home/taj/Pictures/arch.png"
-local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
--- Create a wibox for each screen and add it
+beautiful.font = k.font
+-- local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+local mylauncher = wibox.widget {
+    -- button = awful.button(k),
+    text = '  ',
+    -- fg = "#ff0000",
+    widget = wibox.widget.textbox,
+}
+mylauncher:buttons(awful.button({ }, 1, function(t)
+        -- t:view_only()
+    -- require("naughty").notify({text="Called the button!"})
+    local p = awful.popup({
+        -- ontop = true,
+        visible = false,
+        border_color = "#ff0000",
+        shape = gears.shape.rounded_bar,
+        widget = wibox.widget {
+            text="Noice",
+            widget = wibox.widget.textbox
+        }
+    })
+
+    if p.visible then
+        p.visible = not p.visible
+    else
+        p:move_next_to(mouse.current_widget_geometry)
+    end
+end))
 
 local taglist_buttons = gears.table.join(
     awful.button({ }, 1, function(t) t:view_only() end),
@@ -66,7 +80,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "  ", "   ", " 嗢 ", "    ", "  " }, s, awful.layout.layouts[1])
+    awful.tag({ "  ", "  ", " 嗢 ", "  ", "  " }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -83,14 +97,15 @@ awful.screen.connect_for_each_screen(function(s)
     ))
 
     -- Create a taglist widget
+    -- beautiful.taglist_font = k.font
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
+        buttons = taglist_buttons,
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position="top", screen=s, height=30, opacity=0.8, bg=k.bg, fg="#FFFFFF" })
+    s.mywibox = awful.wibar({ position="top", screen=s, height=25, opacity=0.8, bg=k.bg, fg="#FFFFFF", border_width=5 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -99,8 +114,18 @@ awful.screen.connect_for_each_screen(function(s)
         { --> Left
             layout=wibox.layout.fixed.horizontal,
             space(),
-            mylauncher,
-            space(),
+            {
+                -- mylauncher,
+                power,
+                fg = k.red,
+                widget = wibox.widget.background
+            },
+            space(), space(),
+            {
+                wibox.widget.textbox("  "),
+                fg = k.red,
+                widget = wibox.widget.background
+            },
             datetime(),
             space(),
             s.mypromptbox,

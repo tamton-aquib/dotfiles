@@ -84,6 +84,19 @@ menubar.utils.terminal = k.terminal -- Set the terminal for applications that re
 
 
 -- {{{ Mouse bindings
+local myawesomemenu = {
+    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+    { "manual", k.terminal .. " -e man awesome" },
+    { "edit config", k.editor_cmd .. " " .. awesome.conffile },
+    { "restart", awesome.restart },
+    { "quit", function() awesome.quit() end },
+}
+
+local mymainmenu = awful.menu({ items = {
+    { "awesome", myawesomemenu, beautiful.awesome_icon },
+    { "open terminal", k.terminal }
+}})
+
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
