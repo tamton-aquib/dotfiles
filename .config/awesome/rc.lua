@@ -421,7 +421,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 beautiful.useless_gap = 6
-beautiful.font = "JetBrainsMono NF 11"
+beautiful.font = k.font
 -- beautiful.font = k.font
 
 if awesome.startup then

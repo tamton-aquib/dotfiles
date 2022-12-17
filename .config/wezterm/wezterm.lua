@@ -5,18 +5,19 @@ return {
 
     --> FONT
 	font = wez.font_with_fallback( {
-		-- {family="MonoLisa Nerd Font", weight="Bold"},
+		-- {family="MonoLisa Nerd Font", weight="Italic"},
         -- {family="Operator Mono Lig", weight="Regular"},
-        {family="OperatorMonoLig Nerd Font", weight="Regular"},
+        -- {family="OperatorMonoLig Nerd Font Mono", weight="Bold"},
         -- {family="icomoon"},
         -- {family="OperatorMono Nerd Font", weight="Bold"},
-		{family="JetBrains Mono", weight="Regular" },
+		{family="JetBrainsMonoNerdFontComplete Nerd Font", weight="Regular" },
+        {family="Operator Mono Lig", weight="Regular"},
 		{family="FiraCode NF", weight="Regular" },
 	}),
     -- bold_brightens_ansi_colors = true,
-	font_size = 12.0,
+	font_size = 10.0,
     -- dpi = 96.0,
-	-- line_height = 1.00,
+	line_height = 0.95,
 
 	initial_cols = 120,
 	initial_rows = 28,
@@ -25,7 +26,7 @@ return {
 	window_padding = {
 		left=0, right=0, top=0, bottom=0
 	},
-	window_background_opacity = 0.7,
+	window_background_opacity = 0.8,
     enable_tab_bar = false,
     -- hide_tab_bar_if_only_one_tab = true,
 	-- window_decorations = "RESIZE",
