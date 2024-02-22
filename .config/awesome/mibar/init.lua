@@ -10,6 +10,7 @@ local wifi = require("mibar.wifi")
 local cpu = require("mibar.cpu")
 local datetime = require("mibar.datetime")
 local power = require("mibar.power")
+local battery = require("mibar.battery-widget")
 
 local modkey = k.modkey
 
@@ -62,7 +63,7 @@ local space = function()
 end
 
 local function set_wallpaper(s)
-    beautiful.wallpaper = "/home/taj/Pictures/Wallpapers/astro_car.jpg"
+    beautiful.wallpaper = "/home/taj/Pictures/gruvbox-cafe.png"
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
         if type(wallpaper) == "function" then
@@ -79,7 +80,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "  ", "  ", " 嗢 ", "  ", "  " }, s, awful.layout.layouts[1])
+    awful.tag({ "  ", "  ", "  ", "  ", " 󰕼 " }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -121,7 +122,7 @@ awful.screen.connect_for_each_screen(function(s)
             },
             space(),
             {
-                wibox.widget.textbox(" "),
+                wibox.widget.textbox("  "),
                 fg = k.red,
                 widget = wibox.widget.background
             },
@@ -136,6 +137,8 @@ awful.screen.connect_for_each_screen(function(s)
         { --> Right
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
+            battery({ battery_prefix="" }),
+            space(),
             cpu(),
             space(),
             wifi(),

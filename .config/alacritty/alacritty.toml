@@ -1,0 +1,94 @@
+[colors.bright]
+black = "#3B4252"
+blue = "#569CD6"
+cyan = "#29B8DB"
+green = "#9ece6a"
+magenta = "#C586C0"
+red = "#D54646"
+white = "#ECEFF4"
+yellow = "#D7BA7D"
+
+[colors.normal]
+black = "#3B4252"
+blue = "#569CD6"
+cyan = "#29B8DB"
+green = "#9ece6a"
+magenta = "#C586C0"
+red = "#D54646"
+white = "#abb2bf"
+yellow = "#D7BA7D"
+
+[colors.primary]
+background = "#11121D"
+foreground = "#D8DEE9"
+
+[font]
+builtin_box_drawing = true
+# size = 8.5
+size = 7
+
+[font.bold]
+# family = "Dank Mono"
+family = "MonoLisa"
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+# family = "Dank Mono"
+family = "MonoLisa"
+style = "RegularItalic"
+
+[font.normal]
+# family = "Dank Mono"
+family = "MonoLisa"
+style = "RegularItalic"
+
+[font.offset]
+x = 1
+y = 4
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[shell]
+args = ["--login"]
+program = "/usr/bin/fish"
+
+[window]
+# multiplier = 10
+opacity = 0.65
+# save_to_clipboard = true
+# semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[window.dimensions]
+columns = 50
+lines = 12
+
+[window.padding]
+x = 0
+y = 0

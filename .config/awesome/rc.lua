@@ -39,9 +39,11 @@ do
         if in_error then return end
         in_error = true
 
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = tostring(err) })
+        naughty.notify({
+            preset = naughty.config.presets.critical,
+             title = "Oops, an error happened!",
+             text = tostring(err)
+        })
         in_error = false
     end)
 end
@@ -106,48 +108,26 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 local globalkeys = gears.table.join(
-    awful.key({modkey}, "Up", function() awful.spawn("amixer set Master 10%+") end,
-        {description="Increase volume.", group="awesome"}),
-    awful.key({modkey}, "Down", function() awful.spawn("amixer set Master 10%-") end,
-        {description="Increase volume.", group="awesome"}),
-    awful.key({modkey}, "b", function()
-        local s = awful.screen.focused()
-        s.mywibox.visible = not s.mywibox.visible
-    end, {description="Toggle wibar", group="awesome"}),
-    awful.key({modkey}, "c", function() awful.spawn("colors") end,
-        {description="Display color at mouse.", group="awesome"}),
-    awful.key({}, "Print", function() awful.spawn("flameshot gui") end,
-        {description="Take a screenshot", group="awesome"}),
-    awful.key({ modkey },"s", hotkeys_popup.show_help,
-        {description="show help", group="awesome"}),
-    awful.key({ modkey }, "Left", awful.tag.viewprev,
-        {description = "view previous", group = "tag"}),
-    awful.key({ modkey }, "Right", awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
-    awful.key({ "Mod1" }, "Tab", awful.tag.history.restore,
-        {description = "go back", group = "tag"}),
-    awful.key({ modkey }, "e",  function() awful.spawn("emacsclient -c -a ''") end,
-        {description = "view next", group = "tag"}),
-    awful.key({ modkey }, "j",
-        function () awful.client.focus.byidx( 1) end,
-        {description = "focus next by index", group = "client"}),
-    awful.key({ modkey }, "k",
-        function () awful.client.focus.byidx(-1) end,
-        {description = "focus previous by index", group = "client"}),
-    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              -- {description = "show main menu", group = "awesome"}),
+    awful.key({modkey}, "Up", function() awful.spawn("amixer set Master 10%+") end, {description="Increase volume.", group="awesome"}),
+    awful.key({modkey}, "Down", function() awful.spawn("amixer set Master 10%-") end, {description="Increase volume.", group="awesome"}),
+    awful.key({modkey}, "b", function() local s = awful.screen.focused() s.mywibox.visible = not s.mywibox.visible end, {description="Toggle wibar", group="awesome"}),
+    awful.key({modkey}, "c", function() awful.spawn("colors") end, {description="Display color at mouse.", group="awesome"}),
+    awful.key({}, "Print", function() awful.spawn("flameshot gui") end, {description="Take a screenshot", group="awesome"}),
+    awful.key({ modkey },"s", hotkeys_popup.show_help, {description="show help", group="awesome"}),
+    awful.key({ modkey }, "Left", awful.tag.viewprev, {description = "view previous", group = "tag"}),
+    awful.key({ modkey }, "Right", awful.tag.viewnext, {description = "view next", group = "tag"}),
+    awful.key({ "Mod1" }, "Tab", awful.tag.history.restore, {description = "go back", group = "tag"}),
+    awful.key({ modkey }, "e",  function() awful.spawn("emacsclient -c -a ''") end, {description = "view next", group = "tag"}),
+    awful.key({ modkey }, "n",  function() awful.spawn("neovide --grid=150x40") end, {description = "Open Neovide", group = "tag"}),
+    awful.key({ modkey }, "j", function () awful.client.focus.byidx( 1) end, {description = "focus next by index", group = "client"}),
+    awful.key({ modkey }, "k", function () awful.client.focus.byidx(-1) end, {description = "focus previous by index", group = "client"}),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift" }, "j", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey, "Shift" }, "k", function () awful.client.swap.byidx( -1)    end,
-              {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}),
+    awful.key({ modkey, "Shift" }, "j", function () awful.client.swap.byidx(  1)    end, {description = "swap with next client by index", group = "client"}),
+    awful.key({ modkey, "Shift" }, "k", function () awful.client.swap.byidx( -1)    end, {description = "swap with previous client by index", group = "client"}),
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end, {description = "focus the next screen", group = "screen"}),
+    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end, {description = "focus the previous screen", group = "screen"}),
+    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto, {description = "jump to urgent client", group = "client"}),
 
     -- Standard program
     awful.key({ modkey }, "Return", function () awful.spawn(k.terminal) end, {description = "open a terminal", group = "launcher"}),
@@ -298,14 +278,17 @@ awful.rules.rules = {
     { rule = { },
       -- properties = { border_width = beautiful.border_width,
                      -- border_color = beautiful.border_normal,
-      properties = { border_width = 0,
-                     border_color = 0,
-                     focus = awful.client.focus.filter,
-                     raise = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-                     screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+      properties = {
+            border_width = 0,
+            border_color = 0,
+            focus = awful.client.focus.filter,
+            raise = true,
+            keys = clientkeys,
+            buttons = clientbuttons,
+            screen = awful.screen.preferred,
+            placement = awful.placement.centered + awful.placement.no_overlap+awful.placement.no_offscreen
+            -- maximized_vertical   = false,
+            -- maximized_horizontal = false,
      }
     },
 
@@ -326,7 +309,8 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "xtightvncviewer"},
+          "xtightvncviewer"
+        },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
@@ -339,6 +323,13 @@ awful.rules.rules = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
+
+    -- Spawn floating clients centered
+    -- { rule_any = {floating = true},
+        -- properties = {
+            -- placement = awful.placement.centered
+        -- }
+    -- },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
@@ -428,5 +419,4 @@ if awesome.startup then
     awful.spawn.with_shell("picom -f &")
 end
 
--- require("nice")
 require("mibar")

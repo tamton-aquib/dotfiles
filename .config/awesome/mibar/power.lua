@@ -60,10 +60,10 @@ popup:setup(rows)
 local bookmark_widget = wibox.widget {
     {
         resize = true,
-        font=k.font,
+        font = k.font,
         -- text = " ",
         -- widget = wibox.widget.textbox,
-        widget=wibox.widget.textbox(" ")
+        widget = wibox.widget.textbox(" ")
     },
     margins = 4,
     widget = wibox.container.margin
