@@ -1,0 +1,56 @@
+* {
+	font-family: JetBrainsMono;
+	border: none;
+	border-radius: 0px;
+	color: #d4be98;
+	font-size: 1px;
+	min-height: 0px;
+
+	padding: 0px;
+	margin: 2px 5px 0px 5px;
+}
+
+window#waybar {
+	background-color: rgba(0, 0, 0, 0);
+	transition: all 0s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+
+#clock, #pulseaudio, #systemstats, #backlight, #bluetooth, #battery, #network, #privacy, #mpris, #cpu, #memory {
+	font-size: 10px;
+}
+
+#clock, #pulseaudio, #systemstats, #backlight, #bluetooth, #battery, #network, #privacy, #mpris {
+	border-radius: 6px;
+	background-color: #282828;
+	padding: 0px 10px;
+}
+
+#workspaces {
+	border-radius: 8px;
+	padding: 10px;
+	background-color: #282828;
+}
+
+#workspaces button {
+	background-color: #d4be98;
+	border-radius: 16px;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+	margin: 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+#workspaces button.active {
+	min-width: 40px;
+	background-color: #e78a4e;
+}
+
+#workspaces button.urgent {
+	color: red;
+}
+
+#privacy {
+	color: red;
+}
+
