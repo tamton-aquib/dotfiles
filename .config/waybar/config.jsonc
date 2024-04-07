@@ -207,7 +207,8 @@
 	},
 	"network": {
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
-		"format-wifi": " {essid}",
+		// "format-wifi": " {essid}",
+		"format-wifi": " ",
 		"format-ethernet": " {ipaddr}/{cidr}",
 		"tooltip-format": " {ifname} via {gwaddr}",
 		"format-linked": " {ifname} (No IP)",
@@ -230,7 +231,7 @@
 			"phone": " ",
 			"portable": " ",
 			"car": " ",
-			"default": ["", " ", " "]
+			"default": [" ", " ", " "]
 		},
 		"on-click": "pavucontrol"
 	},

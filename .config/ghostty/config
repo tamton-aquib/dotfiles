@@ -2,36 +2,30 @@
 ##   Theming
 #--------------------------------------
 theme = GruvboxDark
-keybind = ctrl+shift+comma=reload_config
 
 ###------------------------------------
 ##   Font
 #--------------------------------------
-font-size = 8
-font-family = IosevkaTerm Nerd Font
-font-family-bold = IosevkaTerm Nerd Font
-font-family-italic = IosevkaTerm Nerd Font
-font-family-bold-italic = IosevkaTerm Nerd Font
+font-size = 11
+font-family = MonoLisa
+# font-family = IosevkaTerm Nerd Font
 
-###------------------------------------
-##   Cursor
-#--------------------------------------
 cursor-style = bar
-# cursor-style-blink = true
+adjust-cell-width = -15%
 
 ###------------------------------------
 ##   Background
 #--------------------------------------
-background-opacity = 0.98
-background-blur-radius = 20
+# background-opacity = 0.98
+# background-blur-radius = 20
 
 ###------------------------------------
 ##   Behavior
 #--------------------------------------
 confirm-close-surface = false
-mouse-hide-while-typing = true
+# mouse-hide-while-typing = true
 copy-on-select = false
-shell-integration-features = no-cursor,sudo
+# shell-integration-features = no-cursor,sudo
 
 ###------------------------------------
 ##   Keybindings
@@ -58,15 +52,13 @@ window-decoration = false
 window-height = 33
 window-width = 170
 cursor-style-blink = false
-window-padding-x = 10
-window-padding-y = 10
+
+# window-padding-x = 10
+# window-padding-y = 10
 
 # adjust-cell-height = 5
-
-
-class = popup
-x11-instance-name = popup
-
+# class = popup
+# x11-instance-name = popup
 shell-integration = fish
 
 # vim: ft=conf

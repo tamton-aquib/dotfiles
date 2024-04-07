@@ -1,5 +1,5 @@
 * {
-	font-family: JetBrainsMono;
+	font-family: MonoLisa;
 	border: none;
 	border-radius: 0px;
 	color: #d4be98;
@@ -15,20 +15,19 @@ window#waybar {
 	transition: all 0s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-
 #clock, #pulseaudio, #systemstats, #backlight, #bluetooth, #battery, #network, #privacy, #mpris, #cpu, #memory {
-	font-size: 10px;
+	font-size: 16px;
 }
 
 #clock, #pulseaudio, #systemstats, #backlight, #bluetooth, #battery, #network, #privacy, #mpris {
-	border-radius: 6px;
+	border-radius: 8px;
 	background-color: #282828;
-	padding: 0px 10px;
+	padding: 0px 20px;
 }
 
 #workspaces {
 	border-radius: 8px;
-	padding: 10px;
+	padding: 16px;
 	background-color: #282828;
 }
 
@@ -53,4 +52,3 @@ window#waybar {
 #privacy {
 	color: red;
 }
-
