@@ -14,9 +14,12 @@ alias lz=lazygit
 
 
 alias pac="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
-alias yayay="paru -S (paru -Slq | fzf -m)"
+alias yayay="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
+# alias yayay="paru -S (paru -Slq | fzf -m)"
 alias remove="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 alias tt="tt -t 30 -theme one-dark"
 alias font="fc-list | cut -d ':' -f2-3 | rg -i "
 
-alias hackerman="echo 'sudo docker run -it --rm svenstaro/genact -m botnet'"
+alias hackerman="echo 'docker run -it --rm svenstaro/genact -m botnet'"
+alias todo="nvim ~/norg/todo.norg"
+alias bl="bluetui"

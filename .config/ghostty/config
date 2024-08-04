@@ -1,35 +1,32 @@
-###------------------------------------
-##   Theming
-#--------------------------------------
+### GHOSTTY CONFIG
+
+# {{{ THEMING
+
 theme = GruvboxDark
 
-###------------------------------------
-##   Font
-#--------------------------------------
-font-size = 11
-font-family = MonoLisa
+# }}}
+
+# {{{ FONT
+
+font-size = 10
+# font-family = MonoLisa
 # font-family = IosevkaTerm Nerd Font
+# font-family = JetBrainsMono Nerd Font
+font-family = Iosevka Term Slab SemiBold
 
-cursor-style = bar
-adjust-cell-width = -15%
+# }}}
 
-###------------------------------------
-##   Background
-#--------------------------------------
-# background-opacity = 0.98
-# background-blur-radius = 20
+# {{{ BEHAVIOUR
 
-###------------------------------------
-##   Behavior
-#--------------------------------------
 confirm-close-surface = false
 # mouse-hide-while-typing = true
 copy-on-select = false
 # shell-integration-features = no-cursor,sudo
 
-###------------------------------------
-##   Keybindings
-#--------------------------------------
+# }}}
+
+# {{{ KEYBINDINGS
+
 keybind = ctrl+shift+r=reload_config
 
 # Split creation
@@ -41,24 +38,36 @@ keybind = ctrl+tab=goto_split:next
 keybind = ctrl+shift+tab=goto_split:previous
 
 # Split sizing
-keybind = ctrl+left=resize_split:left,20
-keybind = ctrl+right=resize_split:right,20
-keybind = ctrl+up=resize_split:up,20
-keybind = ctrl+down=resize_split:down,20
+keybind = ctrl+left=resize_split:left,30
+keybind = ctrl+right=resize_split:right,30
+keybind = ctrl+up=resize_split:up,30
+keybind = ctrl+down=resize_split:down,30
 keybind = ctrl+shift+equal=equalize_splits
+
+# }}}
+
+# {{{ MISC
+
+# cursor-style = bar
+# adjust-cell-width = -15%
+# background-opacity = 0.98
+# background-blur-radius = 20
 
 font-thicken = true
 window-decoration = false
-window-height = 33
-window-width = 170
+window-height = 40
+window-width = 200
 cursor-style-blink = false
 
-# window-padding-x = 10
-# window-padding-y = 10
+window-padding-x = 10
+window-padding-y = 10
 
 # adjust-cell-height = 5
-# class = popup
+# class = ghostty
 # x11-instance-name = popup
 shell-integration = fish
+shell-integration-features = no-cursor
+# custom-shader = /home/taj/Documents/shader.GLSL
 
-# vim: ft=conf
+# vim: ft=conf fdm=marker fdls=-1 fdl=0
+# }}}

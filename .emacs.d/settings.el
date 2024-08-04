@@ -41,6 +41,6 @@
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-(set-face-attribute 'default nil :font "JetBrainsMonoNerdFontComplete Nerd Font Mono" :height 103 :weight 'Bold)
+(set-face-attribute 'default nil :font "MonoLisa" :height 100)
 ; (set-face-attribute 'default nil :font "MonoLisa Nerd Font" :height 103 :weight 'Medium)
 (setq-default line-spacing 0.3)

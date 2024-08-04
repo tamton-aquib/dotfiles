@@ -27,24 +27,24 @@ builtin_box_drawing = true
 # size = 8.5
 size = 7
 
-[font.bold]
-# family = "Dank Mono"
-family = "MonoLisa"
-style = "Bold"
-
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
 # family = "Dank Mono"
-family = "MonoLisa"
-style = "RegularItalic"
+family = "IosevkaTerm Nerd Font"
+style = "Italic"
 
 [font.normal]
+family = "IosevkaTerm Nerd Font"
+style = "Medium"
+
+[font.bold]
 # family = "Dank Mono"
-family = "MonoLisa"
-style = "RegularItalic"
+family = "IosevkaTerm Nerd Font"
+style = "Bold"
+
 
 [font.offset]
 x = 1
@@ -86,8 +86,8 @@ opacity = 0.65
 # semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window.dimensions]
-columns = 50
-lines = 12
+columns = 160
+lines = 30
 
 [window.padding]
 x = 0

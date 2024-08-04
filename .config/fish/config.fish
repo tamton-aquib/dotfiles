@@ -2,7 +2,7 @@
 # set TERM "screen-256color"             
 set EDITOR "nvim"
 # set VISUAL "kate"
-set BROWSER "brave"
+set BROWSER "firefox"
 set fish_greeting
 
 # Start X at login
@@ -14,8 +14,11 @@ end
 
 # Sources
 source ~/.bash_aliases
-set -x JAVA_HOME /usr/lib/jvm/java-21-openjdk
-set -x ANDROID_SDK_ROOT /opt/android-sdk
+# set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk
+# set -x ANDROID_SDK_ROOT /opt/android-sdk
+
+set -x ANDROID_HOME $HOME/Android/Sdk
+set -x ANDROID_SDK_ROOT $HOME/Android/Sdk
 set -x PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 # fish_add_path /home/taj/Apps/android-sdk/cmdline-tools/tools/bin/
 
@@ -32,7 +35,10 @@ fish_add_path ~/.local/bin/
 fish_add_path ~/.cargo/bin/
 # fish_add_path ~/Apps/flutter/bin/
 fish_add_path ~/.local/share/bob/nvim-bin
-fish_add_path /opt/flutter/bin/
+# fish_add_path /opt/flutter/bin/
+# fish_add_path /opt/android-sdk/cmdline-tools/bin/
+fish_add_path $ANDROID_HOME/emulator
+fish_add_path $ANDROID_HOME/platform-tools
 
 # Vi mode mapped Esc to jk
 function fish_user_key_bindings
