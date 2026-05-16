@@ -102,7 +102,8 @@
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "vicinae vicinae://launch/@Gelei/store.vicinae.bluetooth/devices/"
 	},
 	"sway/scratchpad": {
 		"format": "{icon} {count}",
@@ -150,9 +151,9 @@
 	},
 	"clock": {
 		// "timezone": "America/New_York",
-		"format": " {:%I:%M %p}",
+		"format": "  {:%I:%M %p}",
 		"tooltip-format": "<big>{:%I:%M %p}</big>\n<tt><small>{calendar}</small></tt>",
-		"format-alt": " {:%d-%m-%Y}"
+		"format-alt": "  {:%d-%m-%Y}"
 	},
 	"cpu": {
 		// "format": " {usage}%",
@@ -184,7 +185,7 @@
 		},
 		"format": "{icon} {capacity}%",
 		"format-full": "{icon} {capacity}%",
-		"format-charging": " {capacity}%",
+		"format-charging": "󰂅 {capacity}%",
 		"format-plugged": " {capacity}%",
 		"format-alt": "{time} {icon}",
 		// "format-good": "", // An empty format will hide the module
@@ -213,7 +214,8 @@
 		"tooltip-format": " {ifname} via {gwaddr}",
 		"format-linked": " {ifname} (No IP)",
 		"format-disconnected": "⚠ Disconnected",
-		"format-alt": "{ifname}: {ipaddr}/{cidr} ({signalStrength}%)"
+		"format-alt": "{ifname}: {ipaddr}/{cidr} ({signalStrength}%)",
+		"on-click": "vicinae vicinae://launch/@dagimg-dot/store.vicinae.wifi-commander/manage-saved-networks/"
 	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
@@ -231,7 +233,7 @@
 			"phone": " ",
 			"portable": " ",
 			"car": " ",
-			"default": [" ", " ", " "]
+			"default": ["  ", "  ", "  "]
 		},
 		"on-click": "pavucontrol"
 	},

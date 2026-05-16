@@ -1,18 +1,27 @@
 ### GHOSTTY CONFIG
 
+# custom-shader = /home/taj/.config/ghostty/shaders/glow-rgbsplit-twitchy.glsl
+# custom-shader = /home/taj/.config/ghostty/shaders/bloom.glsl
+
+# custom-shader = /home/taj/.config/ghostty/shaders/cursor_something_2.glsl
+# custom-shader = /home/taj/.config/ghostty/shaders/NEW/cursor_sweep.glsl
+shell-integration-features = sudo
+
 # {{{ THEMING
 
-theme = GruvboxDark
+theme = GruvboxDarkHard
+# background=#1d2021
 
 # }}}
 
 # {{{ FONT
 
-font-size = 10
-# font-family = MonoLisa
+font-size = 11
+font-family = MonoLisa
+# font-family = Rumiko Sans Demo
 # font-family = IosevkaTerm Nerd Font
 # font-family = JetBrainsMono Nerd Font
-font-family = Iosevka Term Slab SemiBold
+# font-family = IosevkaTerm Nerd Font
 
 # }}}
 
@@ -34,8 +43,10 @@ keybind = alt+v=new_split:right
 keybind = alt+s=new_split:down
 
 # Split navigation
-keybind = ctrl+tab=goto_split:next
-keybind = ctrl+shift+tab=goto_split:previous
+# keybind = ctrl+tab=goto_split:next
+# keybind = ctrl+shift+tab=goto_split:previous
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
 
 # Split sizing
 keybind = ctrl+left=resize_split:left,30
@@ -49,20 +60,21 @@ keybind = ctrl+shift+equal=equalize_splits
 # {{{ MISC
 
 # cursor-style = bar
-# adjust-cell-width = -15%
 # background-opacity = 0.98
 # background-blur-radius = 20
 
 font-thicken = true
-window-decoration = false
-window-height = 40
-window-width = 200
+window-decoration = true
+window-height = 32
+window-width = 180
+window-theme = ghostty
 cursor-style-blink = false
 
 window-padding-x = 10
 window-padding-y = 10
 
-# adjust-cell-height = 5
+adjust-cell-width = -12%
+adjust-cell-height = 8
 # class = ghostty
 # x11-instance-name = popup
 shell-integration = fish
