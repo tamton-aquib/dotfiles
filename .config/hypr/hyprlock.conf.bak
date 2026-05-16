@@ -12,30 +12,24 @@ background {
 }
 
 label {
-    text = ◦ $TIME12
-    font_size = 36
-    color = rgb(215, 153, 33)
-    font_family = Caveat
-    halign = center
+    text = <span foreground="SkyBlue1" style="italic">󰣇 </span> I use Arch BTW
+    font_size = 40
     valign = center
 }
 
 input-field {
     size = 250, 50
     outline_thickness = 1
-    placeholder_text = Enter Password...
+    placeholder_text = <span color="black">Enter Password...</span>
     hide_input = false
     halign = center
     valign = center
-    position = 0, -150
 }
 
 label {
-    text = <span foreground="SkyBlue1" style="italic">󰣇 </span> I use Arch BTW
-    font_size = 24
-    font_family = Bad Script
+    text = I use Arch BTW <span font_desc="50">󰣇 <br/></span>
+    color = rgb(200, 200, 200)
+    font_size = 30
     halign = right
     valign = bottom
-    position = -20, 20
 }
-
