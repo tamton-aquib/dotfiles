@@ -1,0 +1,9 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "plugin": [
+    "@streetturtle/opencode-context-progress",
+    "oc-tps@latest",
+    "@slkiser/opencode-quota",
+    "@prevalentware/opencode-goal-plugin"
+  ]
+}
