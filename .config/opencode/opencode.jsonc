@@ -2,21 +2,22 @@
   "$schema": "https://opencode.ai/config.json",
   "model": "opencode-go/deepseek-v4-flash",
   "plugin": [
-    "@mohak34/opencode-notifier@latest",
-    "@slkiser/opencode-quota",
-    "@prevalentware/opencode-goal-plugin"
+    "/home/taj/Test/OPENCODE/opencode-quota",
+    "@prevalentware/opencode-goal-plugin",
+    "@mohak34/opencode-notifier@latest"
   ],
   "username": "taj",
   "agent": {
     "plan": {
       // "model": "opencode-go/kimi-k2.6"
-      "model": "opencode-go/deepseek-v4-pro",
+      // "model": "opencode-go/deepseek-v4-pro",
+      "model": "xiaomi/mimo-v2.5-pro",
       "color": "#ea6962"
     },
     "build": {
       "color": "#a9b665",
-      "model": "opencode-go/deepseek-v4-flash"
-      // "model": "opencode-go/mimo-v2.5"
+      // "model": "opencode-go/deepseek-v4-flash"
+      "model": "xiaomi/mimo-v2.5"
     }
   },
   "provider": {
